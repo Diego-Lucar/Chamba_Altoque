@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chamba al Toque</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.5/font/bootstrap-icons.css" />
+    <link rel="stylesheet" th:href="@{/css/inicio.css}" href="/css/inicio.css" />
+</head>
+<body>
+<header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-3">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="#">Chamba al Toque</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#inicio">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/como-funciona}">Cómo funciona</a></li>
+            </ul>
+            <div class="d-flex align-items-center gap-3">
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill border">Lima</span>
+                <a class="btn btn-success btn-lg rounded-pill px-4" href="#servicios">Publicar Servicio</a>
+                <a class="text-dark fs-5" href="#"><i class="bi bi-person-circle"></i></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="inicio" class="hero-section d-flex align-items-center text-white position-relative">
+        <div class="hero-overlay"></div>
+        <div class="container position-relative zindex-2">
+            <div class="row justify-content-center text-center">
+                <div class="col-xl-8 col-lg-9">
+                    <p class="text-uppercase text-success fw-bold mb-3">Servicio confiable en Lima</p>
+                    <h1 class="display-3 fw-bold mb-4">Encuentra servicios confiables en Lima Metropolitana</h1>
+                    <p class="lead text-white-75 mb-5">Profesionales verificados, reseñas reales, comparación fácil</p>
+                    <div class="bg-white rounded-4 shadow-lg p-3 p-md-4 search-box">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-12 col-md-8">
+                                <div class="input-group input-group-lg rounded-pill overflow-hidden border border-0 shadow-sm">
+                                    <span class="input-group-text bg-white border-0"><i class="bi bi-search text-secondary"></i></span>
+                                    <input type="text" class="form-control border-0" placeholder="Busca por servicio o distrito..." aria-label="Buscar servicio" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 d-grid">
+                                <button class="btn btn-success btn-lg rounded-pill">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row text-center gy-4">
+                <div class="col-6 col-md-3">
+                    <div class="stat-card p-4 rounded-4 shadow-sm">
+                        <i class="bi bi-people-fill text-primary fs-2 mb-3"></i>
+                        <h2 class="display-6 text-primary mb-1">500+</h2>
+                        <p class="mb-0 text-muted">Profesionales</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card p-4 rounded-4 shadow-sm">
+                        <i class="bi bi-star-fill text-primary fs-2 mb-3"></i>
+                        <h2 class="display-6 text-primary mb-1">4.8/5</h2>
+                        <p class="mb-0 text-muted">Valoración</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card p-4 rounded-4 shadow-sm">
+                        <i class="bi bi-shield-check text-primary fs-2 mb-3"></i>
+                        <h2 class="display-6 text-primary mb-1">100%</h2>
+                        <p class="mb-0 text-muted">Verificados</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card p-4 rounded-4 shadow-sm">
+                        <i class="bi bi-hammer text-primary fs-2 mb-3"></i>
+                        <h2 class="display-6 text-primary mb-1">2500+</h2>
+                        <p class="mb-0 text-muted">Servicios realizados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="como-funciona">
+        <div class="container">
+            <div class="row align-items-center gx-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="benefit-image rounded-4 shadow-lg"></div>
+                </div>
+                <div class="col-lg-6">
+                    <span class="badge bg-success bg-opacity-10 text-success mb-3">Conexión inmediata</span>
+                    <h2 class="fw-bold mb-3">Conectamos con profesionales verificados</h2>
+                    <p class="text-muted mb-4">Nuestra plataforma une a clientes con expertos locales que pasan por un proceso de verificación riguroso y cuentan con reseñas reales.</p>
+                    <ul class="list-unstyled mb-4 benefits-list">
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Verificación completa</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Reseñas auténticas</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Respuesta rápida</li>
+                    </ul>
+                    <a href="#servicios" class="text-success fw-semibold">Ver más beneficios →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white" id="servicios">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="text-success fw-bold mb-2">Explora nuestras categorías</p>
+                <h2 class="fw-bold">Encuentra el profesional perfecto para cualquier necesidad</h2>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4">
+                <div class="col">
+                    <div class="category-card h-100 p-4 rounded-4 shadow-sm">
+                        <div class="icon-circle mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <h5 class="fw-semibold mb-2">Técnicos</h5>
+                        <p class="mb-1 text-muted">Electricistas</p>
+                        <p class="mb-1 text-muted">Gasfiteros</p>
+                        <p class="mb-0 text-muted">Aire acondicionado</p>
+                        <a href="#" class="text-success fw-semibold mt-3 d-inline-block">Ver más</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="category-card h-100 p-4 rounded-4 shadow-sm">
+                        <div class="icon-circle mb-3"><i class="bi bi-house-fill"></i></div>
+                        <h5 class="fw-semibold mb-2">Hogar</h5>
+                        <p class="mb-1 text-muted">Limpieza</p>
+                        <p class="mb-1 text-muted">Jardinería</p>
+                        <p class="mb-0 text-muted">Mantenimiento</p>
+                        <a href="#" class="text-success fw-semibold mt-3 d-inline-block">Ver más</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="category-card h-100 p-4 rounded-4 shadow-sm">
+                        <div class="icon-circle mb-3"><i class="bi bi-building-fill"></i></div>
+                        <h5 class="fw-semibold mb-2">Construcción</h5>
+                        <p class="mb-1 text-muted">Albañiles</p>
+                        <p class="mb-1 text-muted">Pintores</p>
+                        <p class="mb-0 text-muted">Remodelaciones</p>
+                        <a href="#" class="text-success fw-semibold mt-3 d-inline-block">Ver más</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="category-card h-100 p-4 rounded-4 shadow-sm">
+                        <div class="icon-circle mb-3"><i class="bi bi-car-front-fill"></i></div>
+                        <h5 class="fw-semibold mb-2">Automotriz</h5>
+                        <p class="mb-1 text-muted">Mecánicos</p>
+                        <p class="mb-1 text-muted">Lavado</p>
+                        <p class="mb-0 text-muted">Diagnóstico</p>
+                        <a href="#" class="text-success fw-semibold mt-3 d-inline-block">Ver más</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="category-card h-100 p-4 rounded-4 shadow-sm">
+                        <div class="icon-circle mb-3"><i class="bi bi-grid-3x3-gap-fill"></i></div>
+                        <h5 class="fw-semibold mb-2">Más servicios</h5>
+                        <p class="mb-1 text-muted">Seguridad</p>
+                        <p class="mb-1 text-muted">Tecnología</p>
+                        <p class="mb-0 text-muted">Otros</p>
+                        <a href="#" class="text-success fw-semibold mt-3 d-inline-block">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="text-success fw-bold mb-2">Lo que dicen nuestros clientes</p>
+                <h2 class="fw-bold">Testimonios reales de personas satisfechas</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="testimonial-card p-4 rounded-4 shadow-sm h-100">
+                        <div class="d-flex align-items-center mb-3 gap-3">
+                            <div class="avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center">
+                                SM
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-semibold">Sandra Martínez</h6>
+                                <small class="text-muted">Electricista</small>
+                                <div class="text-warning mt-2">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-muted">Carlos resolvió un problema eléctrico complicado en mi casa. Muy profesional, puntual y con precios justos. Lo recomiendo 100%.</p>
+                        <small class="text-muted">Hace 2 semanas</small>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card p-4 rounded-4 shadow-sm h-100">
+                        <div class="d-flex align-items-center mb-3 gap-3">
+                            <div class="avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center">
+                                LF
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-semibold">Luis Fernández</h6>
+                                <small class="text-muted">Nutricionista</small>
+                                <div class="text-warning mt-2">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-muted">María me ayudó a bajar 15 kilos de forma saludable. Su plan nutricional es personalizado y fácil de seguir. ¡Excelente profesional!</p>
+                        <small class="text-muted">Hace 1 mes</small>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card p-4 rounded-4 shadow-sm h-100">
+                        <div class="d-flex align-items-center mb-3 gap-3">
+                            <div class="avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center">
+                                PR
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-semibold">Patricia Rojas</h6>
+                                <small class="text-muted">Profesora de Matemáticas</small>
+                                <div class="text-warning mt-2">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-muted">Gracias a Jorge, mi hijo aprobó el examen de admisión a la universidad. Paciente, didáctico y con mucha experiencia.</p>
+                        <small class="text-muted">Hace 3 semanas</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 cta-section text-white text-center">
+        <div class="container">
+            <h2 class="fw-bold mb-3">¿Listo para encontrar tu profesional ideal?</h2>
+            <p class="lead mb-4 text-white-75">Únete a miles de personas que ya confían en Chamba al Toque</p>
+            <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                <a href="#servicios" class="btn btn-light btn-lg rounded-pill px-5">Explorar servicios</a>
+                <a href="#" class="btn btn-success btn-lg rounded-pill px-5">Convertirse en proveedor</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer bg-dark text-white py-5">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-sm-6 col-lg-3">
+                <h6 class="text-uppercase text-success mb-3">Empresa</h6>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#" class="text-white-75">Acerca de nosotros</a></li>
+                    <li><a href="#" class="text-white-75">Cómo funciona</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <h6 class="text-uppercase text-success mb-3">Servicios</h6>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#" class="text-white-75">Hogar</a></li>
+                    <li><a href="#" class="text-white-75">Técnicos</a></li>
+                    <li><a href="#" class="text-white-75">Construcción</a></li>
+                    <li><a href="#" class="text-white-75">Seguridad</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <h6 class="text-uppercase text-success mb-3">Enlaces</h6>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#" class="text-white-75">Términos y condiciones</a></li>
+                    <li><a href="#" class="text-white-75">Política de privacidad</a></li>
+                    <li><a href="#" class="text-white-75">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <h6 class="text-uppercase text-success mb-3">Contacto</h6>
+                <p class="mb-2"><a class="text-white-75" href="mailto:correo@chambaaltoque.com">correo@chambaaltoque.com</a></p>
+                <p class="mb-2">+51 999 999 999</p>
+                <p class="mb-3">Lima, Perú</p>
+                <div class="d-flex gap-3 social-icons">
+                    <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
