@@ -1,0 +1,100 @@
+
+
+.hero-gradient-bg {
+    background: linear-gradient(135deg, var(--blue-main) 0%, var(--green-main) 100%);
+    padding: 5rem 0;
+}
+
+/* Estilos de la sección de los 4 pasos */
+.step-wrapper {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.step-icon-container {
+    width: 86px;
+    height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 2.25rem;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(30, 58, 138, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.step-wrapper:hover .step-icon-container {
+    transform: scale(1.08);
+}
+
+.step-number-badge {
+    position: absolute;
+    bottom: -8px;
+    background-color: var(--white);
+    color: var(--blue-main);
+    border: 2px solid var(--blue-main);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+
+.why-choose-card {
+    border: 1px solid rgba(30, 58, 138, 0.06) !important;
+    border-radius: var(--border-radius) !important;
+    background: var(--white);
+}
+
+/* Banner profesional */
+.professional-cta-card {
+    background: linear-gradient(135deg, var(--blue-main) 0%, var(--green-main) 100%);
+    border-radius: var(--border-radius);
+}
+
+.stat-inner-badge {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease;
+}
+
+.stat-inner-badge:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Acordeón de preguntas frecuentes */
+.faq-section .accordion-item {
+    border: none;
+    border-bottom: 1px solid rgba(51, 65, 85, 0.1);
+}
+
+.faq-section .accordion-button {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    padding: 1.25rem 0;
+}
+
+.faq-section .accordion-button:not(.collapsed) {
+    background-color: transparent;
+    color: var(--blue-main);
+    box-shadow: none;
+}
+
+.faq-section .accordion-button::after {
+    background-size: 1.25rem;
+}
+
+.faq-section .accordion-body {
+    padding: 0 0 1.25rem 0;
+    color: #64748b;
+}

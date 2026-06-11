@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Chamba al Toque</title>
+    
+    <!-- Librerías de diseño de tu proyecto -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    
+    <!-- REGLA DEL COMPAÑERO: Conexión externa usando th:href @{} para leer desde static/css/ -->
+    <link rel="stylesheet" th:href="@{/css/inicio.css}" href="/css/inicio.css" />
+    <link rel="stylesheet" th:href="@{/css/login.css}" href="/css/login.css" />
+</head>
+<body style="background-color: #F8FAFC; min-height: 100vh;" class="d-flex flex-column">
+
+    <!-- Cabecera simplificada del prototipo -->
+    <header class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" th:href="@{/}" style="color: var(--blue-main);">Chamba al Toque</a>
+            <div class="navbar-nav mx-auto d-none d-lg-flex flex-row gap-4">
+                <a class="nav-link text-secondary" th:href="@{/}">Inicio</a>
+                <a class="nav-link text-secondary" th:href="@{/#servicios}">Servicios</a>
+                <a class="nav-link text-secondary" th:href="@{/como-funciona}">Cómo funciona</a>
+                <a class="nav-link text-secondary" href="#"><i class="bi bi-geo-alt-fill me-1"></i>Lima <i class="bi bi-chevron-down small"></i></a>
+            </div>
+            <div class="ms-auto">
+                <a class="text-dark fs-5" th:href="@{/}"><i class="bi bi-x-lg"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Formulario de Inicio de Sesión Centralizado-->
+    <main class="flex-grow-1 d-flex align-items-center justify-content-center p-3">
+        <div class="login-card p-4 p-md-5 shadow-sm border border-0">
+            
+            <!-- Encabezado de la tarjeta -->
+            <div class="text-center mb-4">
+                <div class="icon-lock-box mb-3 shadow-sm">
+                    <i class="bi bi-lock-fill"></i>
+                </div>
+                <h1 class="fw-bold h3 text-dark mb-1">Iniciar sesión</h1>
+                <p class="text-muted small">Bienvenido de vuelta a Chamba al Toque</p>
+            </div>
+
+            <!-- Botones Conmutadores del Prototipo -->
+            <div class="toggle-container mb-4">
+                <button type="button" class="toggle-btn active">Usuario</button>
+                <button type="button" class="toggle-btn">Freelancer</button>
+            </div>
+
+            <!-- Campos de texto visuales -->
+            <form action="#" method="POST" onsubmit="return false;">
+                
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="form-label small fw-bold text-dark">Correo electrónico o teléfono</label>
+                    <div class="form-control-icon">
+                        <i class="bi bi-envelope prefix-icon"></i>
+                        <input type="email" class="form-control" placeholder="tu@email.com" required />
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label class="form-label small fw-bold text-dark">Contraseña</label>
+                    <div class="form-control-icon">
+                        <i class="bi bi-lock prefix-icon"></i>
+                        <input type="password" class="form-control" placeholder="••••••••" required />
+                        <i class="bi bi-eye suffix-icon"></i>
+                    </div>
+                </div>
+
+                <!-- Recordar / Recuperar -->
+                <div class="d-flex align-items-center justify-content-between mb-4 small">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="recordarme">
+                        <label class="form-check-input-label text-muted" for="recordarme">Recordarme</label>
+                    </div>
+                    <a href="#" class="text-green-link">Olvidé mi contraseña</a>
+                </div>
+
+                <!-- Botón Principal -->
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill py-2.5 fw-bold" style="background-color: var(--blue-main); border: none;">
+                        Iniciar sesión
+                    </button>
+                </div>
+
+                <!-- Divisor intermedio -->
+                <div class="divider-text">O continuar con</div>
+
+                <!-- Redes Sociales -->
+                <div class="row g-2 mb-4">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-outline-secondary w-100 py-2 rounded-3 small d-flex align-items-center justify-content-center gap-2">
+                            <i class="bi bi-google text-danger"></i> Google
+                        </button>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-outline-secondary w-100 py-2 rounded-3 small d-flex align-items-center justify-content-center gap-2">
+                            <i class="bi bi-facebook text-primary"></i> Facebook
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Footer de Registro -->
+                <div class="text-center small text-muted">
+                    ¿No tienes cuenta? <a href="#" class="text-green-link">Regístrate aquí</a>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
