@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Administracion</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" th:href="@{/css/dashboardIndex.css}" />
+  </head>
+  <body>
+    <!-- NAVBAR LATERAL -->
+    <aside class="admin-sidebar">
+      <div class="brand-box">
+        <div class="brand-icon">
+          <i class="bi bi-handshake"></i>
+        </div>
+        <div>
+          <h1>Admin Panel</h1>
+          <p>Chamba al Toque</p>
+        </div>
+      </div>
+      <!-- ELEMENTOS DE NAVEGACION -->
+      <nav class="sidebar-nav" aria-label="Menu principal">
+        <a class="nav-link active" th:href="@{/dashboard}">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link" th:href="@{/usuario}">
+          <i class="bi bi-people"></i>
+          <span>Usuarios</span>
+        </a>
+        <a class="nav-link" th:href="@{/freelancer}">
+          <i class="bi bi-person-check"></i>
+          <span>Freelancers</span>
+        </a>
+        <a class="nav-link" th:href="@{/validacion}">
+          <i class="bi bi-file-earmark-check"></i>
+          <span>Validaciones</span>
+        </a>
+        <a class="nav-link" href="#">
+          <i class="bi bi-chat-left"></i>
+          <span>Comentarios</span>
+        </a>
+        <a class="nav-link" href="#">
+          <i class="bi bi-briefcase"></i>
+          <span>Servicios</span>
+        </a>
+        <a class="nav-link" href="#">
+          <i class="bi bi-credit-card"></i>
+          <span>Pagos</span>
+        </a>
+        <a class="nav-link" href="#">
+          <i class="bi bi-clipboard-data"></i>
+          <span>Reportes</span>
+        </a>
+        <a class="nav-link" href="#">
+          <i class="bi bi-exclamation-circle"></i>
+          <span>Reclamos</span>
+        </a>
+      </nav>
+    </aside>
+    <!-- VISTA DE LAS ESTADISTICAS GLOBALES -->
+    <main class="admin-shell">
+      <header class="topbar">
+        <div>
+          <h2>Panel de Administracion</h2>
+          <p>Gestiona la plataforma Chamba al Toque</p>
+        </div>
+        <div class="topbar-actions">
+          <button
+            class="icon-button notification-button"
+            type="button"
+            aria-label="Notificaciones"
+          >
+            <i class="bi bi-bell"></i>
+            <span></span>
+          </button>
+        </div>
+      </header>
+
+      <section class="dashboard-content">
+        <!-- CARD DE METRICAS
+          -TOTAL USUARIOS
+          -FREELANCERS ACTIVOS
+          -RESEÑAS TOTALES
+          -SERVICIOS ESTE MES 
+        -->
+        <div class="row g-4 mb-4">
+          <div class="col-12 col-sm-6 col-xl-3">
+            <article class="metric-card">
+              <div class="metric-top">
+                <span class="metric-icon blue-soft"
+                  ><i class="bi bi-people"></i
+                ></span>
+                <span class="metric-growth">+12%</span>
+              </div>
+              <h3>1,234</h3>
+              <p>Total Usuarios</p>
+            </article>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-3">
+            <article class="metric-card">
+              <div class="metric-top">
+                <span class="metric-icon green-soft"
+                  ><i class="bi bi-person-check"></i
+                ></span>
+                <span class="metric-growth">+8%</span>
+              </div>
+              <h3>567</h3>
+              <p>Freelancers Activos</p>
+            </article>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-3">
+            <article class="metric-card">
+              <div class="metric-top">
+                <span class="metric-icon blue-soft"
+                  ><i class="bi bi-chat-square"></i
+                ></span>
+                <span class="metric-growth">+24%</span>
+              </div>
+              <h3>3,456</h3>
+              <p>Resenas Totales</p>
+            </article>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-3">
+            <article class="metric-card">
+              <div class="metric-top">
+                <span class="metric-icon green-soft"
+                  ><i class="bi bi-graph-up-arrow"></i
+                ></span>
+                <span class="metric-growth">+15%</span>
+              </div>
+              <h3>892</h3>
+              <p>Servicios Este Mes</p>
+            </article>
+          </div>
+        </div>
+        <!-- CARD DE VALIDACIONES PENDIENTES -->
+        <div class="row g-4">
+          <div class="col-12 col-xl-6">
+            <section class="panel-card">
+              <div class="panel-heading">
+                <h3><i class="bi bi-clock"></i> Validaciones Pendientes</h3>
+                <span class="count-badge warning">3</span>
+              </div>
+              <div class="validation-list">
+                <article class="validation-item">
+                  <div>
+                    <h4>Carlos Mendoza</h4>
+                    <p>Documentos - 2026-05-10</p>
+                  </div>
+                  <div class="validation-actions">
+                    <button
+                      class="round-action approve"
+                      type="button"
+                      aria-label="Aprobar a Carlos Mendoza"
+                    >
+                      <i class="bi bi-check-circle"></i>
+                    </button>
+                    <button
+                      class="round-action reject"
+                      type="button"
+                      aria-label="Rechazar a Carlos Mendoza"
+                    >
+                      <i class="bi bi-x-circle"></i>
+                    </button>
+                  </div>
+                </article>
+                <article class="validation-item">
+                  <div>
+                    <h4>Maria Rodriguez</h4>
+                    <p>Perfil - 2026-05-09</p>
+                  </div>
+                  <div class="validation-actions">
+                    <button
+                      class="round-action approve"
+                      type="button"
+                      aria-label="Aprobar a Maria Rodriguez"
+                    >
+                      <i class="bi bi-check-circle"></i>
+                    </button>
+                    <button
+                      class="round-action reject"
+                      type="button"
+                      aria-label="Rechazar a Maria Rodriguez"
+                    >
+                      <i class="bi bi-x-circle"></i>
+                    </button>
+                  </div>
+                </article>
+                <article class="validation-item">
+                  <div>
+                    <h4>Jorge Vasquez</h4>
+                    <p>Certificacion - 2026-05-08</p>
+                  </div>
+                  <div class="validation-actions">
+                    <button
+                      class="round-action approve"
+                      type="button"
+                      aria-label="Aprobar a Jorge Vasquez"
+                    >
+                      <i class="bi bi-check-circle"></i>
+                    </button>
+                    <button
+                      class="round-action reject"
+                      type="button"
+                      aria-label="Rechazar a Jorge Vasquez"
+                    >
+                      <i class="bi bi-x-circle"></i>
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+          <!-- CARD DE RECLAMOS RECIENTES -->
+          <div class="col-12 col-xl-6">
+            <section class="panel-card">
+              <div class="panel-heading claims-heading">
+                <h3>
+                  <i class="bi bi-exclamation-circle"></i> Reclamos Recientes
+                </h3>
+                <span class="count-badge danger">3</span>
+              </div>
+              <div class="claim-list">
+                <article class="claim-item">
+                  <div class="claim-main">
+                    <div>
+                      <h4>Juan Perez</h4>
+                      <p>Servicio no completado</p>
+                    </div>
+                    <span class="priority high">Alta</span>
+                  </div>
+                  <div class="claim-footer">
+                    <span>2026-05-11</span>
+                    <a href="#">Ver detalles</a>
+                  </div>
+                </article>
+                <article class="claim-item">
+                  <div class="claim-main">
+                    <div>
+                      <h4>Ana Torres</h4>
+                      <p>Retraso en respuesta</p>
+                    </div>
+                    <span class="priority medium">Media</span>
+                  </div>
+                  <div class="claim-footer">
+                    <span>2026-05-10</span>
+                    <a href="#">Ver detalles</a>
+                  </div>
+                </article>
+                <article class="claim-item">
+                  <div class="claim-main">
+                    <div>
+                      <h4>Luis Garcia</h4>
+                      <p>Precio incorrecto</p>
+                    </div>
+                    <span class="priority low">Baja</span>
+                  </div>
+                  <div class="claim-footer">
+                    <span>2026-05-09</span>
+                    <a href="#">Ver detalles</a>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="container-fluid p-4 mt-4 shadow accions-panel">
+          <h3>Acciones rapidas</h3>
+          <div class="row d-flex gap-4 flex-wrap justify-content-around">
+            <a href="" class="text-center align-content-center action-item text-decoration-none">
+              <i class="bi bi-person-plus fs-1"></i>
+              <p class=" text-dark fw-medium">Validar proveedor</p>
+            </a>
+            <a href="" class="text-center align-content-center action-item text-decoration-none">
+              <i class="bi bi-card-text fs-1"></i>
+              <p class=" text-dark fw-medium">Moderar reseñas</p>
+            </a>
+            <a href="" class="text-center align-content-center action-item text-decoration-none">
+              <i class="bi bi-file-earmark-text fs-1"></i>
+              <p class=" text-dark fw-medium">Crear reporte</p>
+            </a>
+            <a href="" class="text-center align-content-center action-item text-decoration-none">
+              <i class="bi bi-exclamation-circle fs-1"></i>
+              <p class=" text-dark fw-medium">Validar resolver reclamos</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

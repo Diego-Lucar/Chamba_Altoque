@@ -1,0 +1,26 @@
+:root {
+  --primary-blue: #2445bc;
+  --primary-blue-dark: #0b1736;
+  --text-main: #00102e;
+  --text-muted: #263b5b;
+  --border-color: #dfe7f2;
+  --panel-bg: #ffffff;
+  --page-bg: #f8fafc;
+  --soft-blue: #eef2ff;
+  --soft-green: #eafaf1;
+  --success: #07966d;
+  --danger: #e51d2a;
+  --warning-bg: #ffebb3;
+  --warning-text: #de8a00;
+}
+
+.filtro{
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+.cards{
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
