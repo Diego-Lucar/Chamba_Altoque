@@ -23,7 +23,6 @@
                 <a class="nav-link text-secondary" th:href="@{/}">Inicio</a>
                 <a class="nav-link text-secondary" th:href="@{/#servicios}">Servicios</a>
                 <a class="nav-link text-secondary" th:href="@{/como-funciona}">Cómo funciona</a>
-                <a class="nav-link text-secondary" href="#"><i class="bi bi-geo-alt-fill me-1"></i>Lima <i class="bi bi-chevron-down small"></i></a>
             </div>
             <div class="ms-auto">
                 <a class="text-dark fs-5" th:href="@{/}"><i class="bi bi-x-lg"></i></a>
@@ -107,7 +106,7 @@
 
                 <!-- Footer de Registro -->
                 <div class="text-center small text-muted">
-                    ¿No tienes cuenta? <a href="#" class="text-green-link">Regístrate aquí</a>
+                    ¿No tienes cuenta? <a th:href="@{/registro}" href="/registro" class="text-green-link">Regístrate aquí</a>
                 </div>
 
             </form>

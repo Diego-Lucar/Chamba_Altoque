@@ -164,6 +164,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer {
     background: var(--blue-dark);
+    color: var(--white);
 }
 
 .footer-links li {
@@ -172,10 +173,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-links a {
     text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--green-main); 
 }
 
 .social-icons a {
     font-size: 1.25rem;
+    color: var(--white);
     transition: color 0.3s ease;
 }
 
