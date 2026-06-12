@@ -32,11 +32,18 @@ a {
 
 .admin-sidebar {
   position: fixed;
-  inset: 0 auto 0 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
   width: 234px;
   background: var(--panel-bg);
   border-right: 1px solid var(--border-color);
-  z-index: 20;
+  z-index: 25;
+  transition: left 0.3s ease;
+}
+
+#menu-toggle:checked ~ .admin-sidebar {
+  left: -260px;
 }
 
 .brand-box {
@@ -119,16 +126,25 @@ a {
 .admin-shell {
   min-height: 100vh;
   margin-left: 234px;
+  transition: margin-left 0.3s ease;
+}
+
+#menu-toggle:checked ~ .admin-shell {
+  margin-left: 0;
 }
 
 .topbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 14px;
   height: 83px;
-  padding: 14px 27px 14px 25px;
+  padding: 14px 27px;
   background: var(--panel-bg);
   border-bottom: 1px solid var(--border-color);
+}
+
+.topbar > div:first-of-type {
+  margin-right: auto;
 }
 
 .topbar h2 {
@@ -399,6 +415,8 @@ a {
 .accions-panel{
   background-color: var(--panel-bg);
   border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(1, 16, 46, 0.06);
 }
 .accions-panel h3{
   margin: 0 0 16px;
@@ -430,32 +448,64 @@ a {
     border-color: var(--primary-blue);
   }
 }
+/* CHECKBOX OCULTO PARA CONTROLAR EL MENU */
+#menu-toggle {
+  display: none;
+}
+
+/* HAMBURGER BUTTON - dentro del topbar */
+.hamburger-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.hamburger-btn:hover {
+  background: var(--soft-blue);
+  color: var(--primary-blue);
+}
+
+/* SIDEBAR OVERLAY */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  background: rgba(0, 0, 0, 0.4);
+}
+
 @media (max-width: 991.98px) {
   .admin-sidebar {
-    position: static;
-    width: 100%;
-    border-right: 0;
+    left: -260px;
   }
 
-  .brand-box {
-    height: auto;
+  #menu-toggle:checked ~ .admin-sidebar {
+    left: 0;
   }
 
-  .sidebar-nav {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding: 12px;
+  #menu-toggle:checked ~ .sidebar-overlay {
+    display: block;
   }
 
   .admin-shell {
     margin-left: 0;
   }
 
+  #menu-toggle:checked ~ .admin-shell {
+    margin-left: 0;
+  }
+
   .topbar {
-    height: auto;
-    gap: 18px;
-    align-items: flex-start;
-    padding: 18px;
+    padding: 14px 18px;
   }
 
   .dashboard-content {
@@ -464,33 +514,66 @@ a {
 }
 
 @media (max-width: 575.98px) {
-  .sidebar-nav {
-    grid-template-columns: 1fr;
+  .topbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    height: auto;
+    gap: 0;
   }
 
-  .topbar,
-  .claim-main,
-  .claim-footer {
-    flex-direction: column;
+  .topbar > div:first-of-type {
+    width: 100%;
+    order: 3;
+    margin-right: 0;
+    margin-top: 10px;
   }
 
   .topbar-actions {
-    width: 100%;
-    justify-content: space-between;
+    align-self: center;
+    margin-left: auto;
   }
 
-  .metric-card,
-  .panel-card {
+  .dashboard-content {
     padding: 18px;
   }
 
+  .metric-card {
+    height: auto;
+    padding: 18px;
+  }
+
+  .panel-card {
+    padding: 18px;
+    min-height: auto;
+  }
+
   .validation-item {
-    align-items: flex-start;
     flex-direction: column;
+    align-items: flex-start;
     gap: 14px;
   }
 
   .validation-actions {
     align-self: flex-end;
+  }
+
+  .claim-main,
+  .claim-footer {
+    flex-direction: column;
+  }
+
+  .claim-footer {
+    align-items: flex-start;
+  }
+
+  .action-item {
+    width: 100%;
+  }
+
+  .topbar h2 {
+    font-size: 20px;
   }
 }
