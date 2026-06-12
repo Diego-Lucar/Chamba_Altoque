@@ -18,6 +18,7 @@
     <link rel="stylesheet" th:href="@{/css/dashboardUsuario.css}" />
   </head>
   <body>
+    <input type="checkbox" id="menu-toggle" />
     <!-- NAVBAR LATERAL -->
     <aside class="admin-sidebar">
       <div class="brand-box">
@@ -69,8 +70,12 @@
         </a>
       </nav>
     </aside>
+    <label for="menu-toggle" class="sidebar-overlay"></label>
     <main class="admin-shell">
       <header class="topbar">
+        <label for="menu-toggle" class="hamburger-btn">
+          <i class="bi bi-list"></i>
+        </label>
         <div>
           <h2>Panel de Administracion</h2>
           <p>Gestiona la plataforma Chamba al Toque</p>
