@@ -1,0 +1,468 @@
+/* ==========================================================================
+   PALETA DE COLORES E IDENTIDAD - CHAMBA AL TOQUE
+   ========================================================================== */
+:root {
+    --bs-primary: #1E3A8A;
+    --bs-success: #10B981;
+    --bs-body-color: #334155;
+    --bs-body-bg: #FFFFFF;
+    --blue-main: #1E3A8A;
+    --blue-dark: #172554;
+    --green-main: #10B981;
+    --green-hover: #059669;
+    --white: #FFFFFF;
+    --gray-light: #F8FAFC;
+    --text-dark: #334155;
+    --border-radius: 1.75rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important; /* Previene desbordamiento en campos e inputs */
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--gray-light);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* NAVBAR SUPERIOR */
+.navbar-superior {
+    background-color: var(--white);
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-texto {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--blue-main);
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.navbar-menu .nav-item {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+}
+
+.navbar-menu .nav-item:hover, 
+.navbar-menu .nav-item.active {
+    color: var(--blue-main);
+}
+
+.navbar-menu .nav-item.active {
+    font-weight: 600;
+}
+
+/* DROPDOWN REGIONES */
+.nav-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dropdown-trigger {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.dropdown-trigger:hover {
+    color: var(--blue-main);
+}
+
+.dropdown-menu-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--white);
+    min-width: 160px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 6px 0;
+    margin-top: 15px;
+    z-index: 1100;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 8px 16px;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.dropdown-link:hover, .dropdown-link.active {
+    background-color: var(--gray-light);
+    color: var(--blue-main);
+}
+
+.nav-dropdown:hover .dropdown-menu-content {
+    display: block;
+}
+
+.navbar-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.user-avatar-circle {
+    width: 35px;
+    height: 35px;
+    background-color: #cbd5e1;
+    border-radius: 50%;
+}
+
+/* CONTENEDOR CENTRAL */
+.contenedor-principal {
+    max-width: 1200px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.header-seccion h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin-bottom: 5px;
+}
+
+.header-seccion p {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+/* LAYOUT COLUMNAS */
+.layout-columnas {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.tarjeta-blanca {
+    background-color: var(--white);
+    border-radius: 1rem;
+    border: 1px solid rgba(30, 58, 138, 0.08);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.02);
+    overflow: hidden;
+}
+
+.columna-izquierda {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* BLOQUE TRABAJADOR PRINCIPAL */
+.bloque-perfil-principal {
+    padding-bottom: 20px;
+}
+
+.perfil-banner-azul {
+    height: 90px;
+    background-color: var(--blue-main);
+}
+
+.perfil-avatar-contenedor {
+    display: flex;
+    justify-content: center;
+    margin-top: -45px;
+    margin-bottom: 10px;
+}
+
+.foto-redonda-trabajador {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 4px solid var(--white);
+    object-fit: cover;
+}
+
+.perfil-info-basica {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.nombre-profesional {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--blue-dark);
+}
+
+.profesion-tag {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.badge-disponible {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #dcfce7;
+    color: var(--green-hover);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+}
+
+.badge-disponible i {
+    font-size: 6px;
+}
+
+.tarifa-precio {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--blue-main);
+    margin-top: 5px;
+}
+
+/* BLOQUES SECUNDARIOS PERFIL */
+.bloque-info-perfil {
+    padding: 24px;
+}
+
+.bloque-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 8px;
+}
+
+.bloque-header i {
+    font-size: 18px;
+    color: var(--blue-main);
+}
+
+.bloque-header h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-transform: uppercase;
+}
+
+.lista-perfil-items {
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lista-perfil-items li {
+    font-size: 13.5px;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* HISTORIAL DE RESEÑAS */
+.contenedor-resenas-historicas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.resena-item {
+    background-color: var(--gray-light);
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.resena-usuario-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* COMPONENTES DE FORMULARIO INTERNO */
+.form-agregar-comentario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-publicar-comentario {
+    background-color: var(--blue-main);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.btn-publicar-comentario:hover {
+    background-color: var(--blue-dark);
+}
+
+/* COLUMNA DERECHA: FORMULARIO PRINCIPAL */
+.tarjeta-formulario {
+    padding: 35px;
+}
+
+.formulario-header {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 15px;
+}
+
+.formulario-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blue-dark);
+}
+
+.formulario-solicitud {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.grupo-campo label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.grupo-campo input, 
+.grupo-campo select, 
+.grupo-campo textarea {
+    width: 100% !important;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    color: var(--text-dark);
+    background-color: var(--white);
+    outline: none;
+}
+
+.grupo-campo input:focus, 
+.grupo-campo select:focus, 
+.grupo-campo textarea:focus {
+    border-color: var(--green-main);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.fila-campos-dobles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.btn-enviar-solicitud {
+    background-color: var(--green-main);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-enviar-solicitud:hover {
+    background-color: var(--green-hover);
+}
+
+/* ==========================================================================
+   ESTILOS OPTIMIZADOS DEL FOOTER INSTITUTIONAL (Mismo diseño que Inicio)
+   ========================================================================== */
+.footer {
+    background-color: var(--blue-dark) !important;
+    color: #94a3b8;
+}
+
+.text-success-custom {
+    color: var(--green-main) !important;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+}
+
+.footer-links li {
+    margin-bottom: 0.85rem;
+}
+
+.footer-links a {
+    color: #cbd5e1 !important;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--white) !important;
+}
+
+.social-icons a {
+    font-size: 1.25rem;
+    color: #cbd5e1;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--green-main) !important;
+}
+
+.text-secondary-custom {
+    color: #64748b;
+}
