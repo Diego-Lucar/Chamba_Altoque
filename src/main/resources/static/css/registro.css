@@ -206,6 +206,30 @@
     border-color: #10b981;
 }
 
+/* Validación Bootstrap - evitar que el mensaje empuje los iconos */
+.input-container .invalid-feedback {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    width: 100%;
+    font-size: 0.75rem;
+    display: none;
+}
+
+.was-validated .input-container :invalid ~ .invalid-feedback {
+    display: block;
+}
+
+.was-validated .form-input:invalid,
+.was-validated .form-select:invalid {
+    border-color: #dc3545;
+}
+
+.was-validated .form-input:valid,
+.was-validated .form-select:valid {
+    border-color: #198754;
+}
+
 /* Botones y Acciones */
 .btn-primary-block {
     width: 100%;

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Panel de Validaciones</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -96,8 +96,8 @@
           class="container d-flex flex-md-row flex-column justify-content-between align-items-center mb-4"
         >
           <div>
-            <h3 class="fw-bold">Gestionar usuarios</h3>
-            <p>Administra todos los usuarios de la plataforma</p>
+            <h3 class="fw-bold">Validar Documentación</h3>
+            <p>Revisa y aprueba documentos de nuevos proveedores</p>
           </div>
           <div
             class="col-4 d-flex flex-row g-3 gap-3 justify-content-center val_filters"
@@ -123,10 +123,58 @@
             </thead>
             <tbody class="text-center">
               <tr>
-                <td>Juan Perez</td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <span class="fw-bold">Maria Rodriguez</span>
+                    <span>maria.rodriguez@email.com</span>
+                  </div>
+                </td>
+                <td>Nutricionista</td>
+                <td>San Isidro</td>
+                <td>
+                  <div class="d-flex flex-column ">
+                    <a href="">
+                      <i class="bi bi-arrow-bar-down text-primary"></i> DNI
+                    </a>
+                    <a href="">
+                      <i class="bi bi-arrow-bar-down text-primary"></i> Titulo Profesional
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <p class="badge bg-warning text-bg-warning">Pendiente</p>
+                </td>
+                <td>2026-05-15</td>
+                <td>
+                  <div class="d-flex gap-2 justify-content-center">
+                    <button class="btn btn-sm btn-outline-primary rounded-pill">
+                      <i class="bi bi-pencil-square fs-6"></i>
+                    </button>
+                    <a class="btn btn-sm btn-outline-danger rounded-pill"
+                      ><i class="bi bi-ban fs-6"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="d-flex flex-column">
+                    <span class="fw-bold">Juan Perez</span>
+                    <span>juanperez@email.com</span>
+                  </div>
+                </td>
                 <td>Electricista</td>
                 <td>Miraflores</td>
-                <td>Proximamente...</td>
+                <td>
+                  <div class="d-flex flex-column ">
+                    <a href="">
+                      <i class="bi bi-arrow-bar-down text-primary"></i> DNI
+                    </a>
+                    <a href="">
+                      <i class="bi bi-arrow-bar-down text-primary"></i> Certificado SENATI
+                    </a>
+                  </div>
+                </td>
                 <td>
                   <p class="badge bg-warning text-bg-warning">Pendiente</p>
                 </td>
@@ -142,6 +190,7 @@
                   </div>
                 </td>
               </tr>
+              
             </tbody>
           </table>
         </div>

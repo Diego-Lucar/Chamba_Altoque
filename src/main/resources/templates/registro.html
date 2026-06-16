@@ -82,12 +82,12 @@
 
             <div id="step2prov" style="display:none;">
                 <p class="form-section-title">Datos Básicos</p>
-                <div class="form-group-list">
+                <form class="form-group-list was-validated">
                     <div>
                         <label class="form-label">Nombre completo</label>
                         <div class="input-container">
                             <span class="input-icon-left"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>
-                            <input type="text" placeholder="Tu nombre completo" class="form-input" />
+                            <input type="text" placeholder="Tu nombre completo" class="form-input" required/>
                         </div>
                     </div>
                     <div>
@@ -137,10 +137,10 @@
                             <input type="password" placeholder="••••••••" class="form-input" />
                         </div>
                     </div>
-                </div>
+                </form>
                 <div class="btn-grid-actions">
-                    <button onclick="goStep(1)" class="btn-nav-back">Atrás</button>
-                    <button onclick="goStep(3)" class="btn-nav-next">Continuar</button>
+                    <button onclick="goStep(1)" class="btn-nav-back" type="button">Atrás</button>
+                    <button onclick="goStep(3)" class="btn-nav-next" type="submit">Continuar</button>
                 </div>
                 <p class="login-redirect-text">
                     ¿Ya tienes cuenta? <a th:href="@{/login}" href="/login" class="login-link">Inicia sesión aquí</a>

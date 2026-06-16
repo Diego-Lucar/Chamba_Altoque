@@ -1,0 +1,95 @@
+.avatar-gradient {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 40%, #15a88c 100%);
+  width: 90px;
+  height: 90px;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+.text-dark-blue {
+  color: #112a46;
+}
+
+.cards-info{
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.form-solicitud{
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+}
+.text-subtitle {
+  color: #5c728a;
+}
+.card-form {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+.text-dark-blue {
+  color: #1e293b;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 0.4rem;
+}
+.form-control {
+  border-radius: 12px;
+  border-color: #cbd5e1;
+  padding: 0.6rem 1rem;
+}
+.form-control:focus {
+  border-color: #11b87a;
+  box-shadow: 0 0 0 0.25rem rgba(17, 184, 122, 0.2);
+}
+
+.btn-custom-green {
+  background-color: #11b87a;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem;
+  font-weight: 600;
+}
+.btn-custom-green:hover {
+  background-color: #0ea36c;
+  color: white;
+}
+
+.contact-text {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: #d1d5db;
+  transition: color 0.15s;
+}
+
+.star-rating label i {
+  pointer-events: none;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #f59e0b;
+}

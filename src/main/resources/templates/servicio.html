@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/servicios.css}" />
+  </head>
+  <body>
+    <header th:replace="layouts :: navbar"></header>
+
+    <div class="container text-start mt-4">
+      <h2 class="fw-bold text-black">Encuentra tu profesional ideal</h2>
+    </div>
+    <div
+      class="container-fluid mt-4 d-flex flex-md-row flex-column justify-content-center gap-5"
+    >
+      <!-- FILTROS -->
+      <div class="col-md-2 col-12 bg-white p-4 rounded-4 shadow">
+        <h4 class="fs-5"><i class="bi bi-funnel text-primary"></i> Filtros</h4>
+        <div class="mt-3 d-flex flex-column gap-2">
+          <span>Buscar</span>
+          <input
+            type="text"
+            class="rounded-pill p-2"
+            placeholder="Servicio o palabra clave..."
+          />
+        </div>
+        <div class="mt-3 d-flex flex-column gap-2">
+          <span>Categoria</span>
+          <select class="form-select rounded-pill p-2">
+            <option value="">Seleccionar categoria</option>
+            <option value="1">Tecnico</option>
+            <option value="2">Salud</option>
+            <option value="3">Educacion</option>
+          </select>
+        </div>
+        <div class="mt-3 d-flex flex-column gap-2">
+          <span>Distrito</span>
+          <select class="form-select rounded-pill p-2">
+            <option value="">Seleccionar distrito</option>
+            <option value="1">San Juan de Lurigancho</option>
+            <option value="2">Breña</option>
+            <option value="3">La Victoria</option>
+          </select>
+        </div>
+        <div class="mt-3 d-flex flex-column gap-2">
+          <span>Calificacion minima</span>
+          <div>
+            <fieldset>
+              <label>
+                <input type="radio" name="rating" value="4.5" />
+                ⭐ 4.5+ estrellas </label
+              ><br />
+
+              <label>
+                <input type="radio" name="rating" value="4" />
+                ⭐ 4+ estrellas </label
+              ><br />
+
+              <label>
+                <input type="radio" name="rating" value="3.5" />
+                ⭐ 3.5+ estrellas </label
+              ><br />
+
+              <label>
+                <input type="radio" name="rating" value="all" checked />
+                ⭐ Todas
+              </label>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <!-- CARDS DE PROFESIONALES -->
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow">
+              <div class="position-relative">
+                <img
+                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+                  class="card-img-top"
+                  alt="profesional"
+                  style="height: 200px; object-fit: cover"
+                />
+                <span
+                  class="position-absolute top-0 end-0 bg-success text-white rounded-circle p-1 m-2 d-flex align-items-center justify-content-center"
+                  style="width: 28px; height: 28px"
+                >
+                  <i class="bi bi-check-lg"></i>
+                </span>
+              </div>
+              <div class="card-body">
+                <h5 class="fw-bold mb-1">Carlos Gutierrez</h5>
+                <p class="text-muted mb-2">Electricista Profesional</p>
+                <p class="mb-1 small">
+                  <i class="bi bi-geo-alt text-secondary me-1"></i>San Juan de
+                  Lurigancho
+                </p>
+                <p class="mb-0 small fw-bold">
+                  <i class="bi bi-star-fill me-1 text-success"></i>4.9
+                  <span class="text-muted">(127 reseñas)</span>
+                </p>
+              </div>
+              <div
+                class="card-footer bg-white d-flex justify-content-between align-items-center border-0 pt-0"
+              >
+                <span class="fw-bold text-primary-emphasis"
+                  >S/. 80 - S/.120</span
+                >
+                <a
+                  href="#"
+                  th:href="@{/solicitud}"
+                  class="btn btn-success btn-sm rounded-pill"
+                  >Contactar</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div th:replace="layouts :: footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

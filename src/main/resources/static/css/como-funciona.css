@@ -1,100 +1,99 @@
-
-
-.hero-gradient-bg {
-    background: linear-gradient(135deg, var(--blue-main) 0%, var(--green-main) 100%);
-    padding: 5rem 0;
+.hero-funciona {
+  background: linear-gradient(135deg, #0f2c59 0%, #1a4a8a 60%, #11b87a 100%);
+  padding: 5rem 0;
+  text-align: center;
+  color: #fff;
 }
-
-/* Estilos de la sección de los 4 pasos */
-.step-wrapper {
-    position: relative;
-    margin-bottom: 2rem;
+.hero-funciona h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
 }
-
-.step-icon-container {
-    width: 86px;
-    height: 86px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: var(--white);
-    font-size: 2.25rem;
-    position: relative;
-    margin: 0 auto;
-    box-shadow: 0 10px 20px rgba(30, 58, 138, 0.15);
-    transition: transform 0.3s ease;
+.hero-funciona p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 1rem auto 0;
 }
-
-.step-wrapper:hover .step-icon-container {
-    transform: scale(1.08);
+.section-title {
+  font-weight: 700;
+  color: #0f2c59;
+  margin-bottom: 3rem;
+  text-align: center;
 }
-
-.step-number-badge {
-    position: absolute;
-    bottom: -8px;
-    background-color: var(--white);
-    color: var(--blue-main);
-    border: 2px solid var(--blue-main);
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+.step-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  height: 100%;
 }
-
-
-.why-choose-card {
-    border: 1px solid rgba(30, 58, 138, 0.06) !important;
-    border-radius: var(--border-radius) !important;
-    background: var(--white);
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
-
-/* Banner profesional */
-.professional-cta-card {
-    background: linear-gradient(135deg, var(--blue-main) 0%, var(--green-main) 100%);
-    border-radius: var(--border-radius);
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 1rem;
 }
-
-.stat-inner-badge {
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: background 0.3s ease;
+.step-number.primary {
+  background: #0f2c59;
 }
-
-.stat-inner-badge:hover {
-    background: rgba(255, 255, 255, 0.2);
+.step-number.success {
+  background: #11b87a;
 }
-
-/* Acordeón de preguntas frecuentes */
-.faq-section .accordion-item {
-    border: none;
-    border-bottom: 1px solid rgba(51, 65, 85, 0.1);
+.benefit-icon {
+  font-size: 2.2rem;
+  color: #11b87a;
+  margin-bottom: 1rem;
 }
-
-.faq-section .accordion-button {
-    font-size: 1.1rem;
-    color: var(--text-dark);
-    padding: 1.25rem 0;
+.faq-section {
+  background: #f8fafc;
 }
-
-.faq-section .accordion-button:not(.collapsed) {
-    background-color: transparent;
-    color: var(--blue-main);
-    box-shadow: none;
+.accordion-button:not(.collapsed) {
+  background-color: #f0fdf4;
+  color: #0f2c59;
+  font-weight: 600;
 }
-
-.faq-section .accordion-button::after {
-    background-size: 1.25rem;
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: #11b87a;
 }
-
-.faq-section .accordion-body {
-    padding: 0 0 1.25rem 0;
-    color: #64748b;
+.cta-section {
+  background: linear-gradient(135deg, #11b87a 0%, #0ea36c 100%);
+  padding: 4rem 0;
+  text-align: center;
+  color: #fff;
+}
+.cta-section h2 {
+  font-weight: 700;
+  font-size: 2rem;
+}
+.cta-section p {
+  opacity: 0.9;
+  max-width: 500px;
+  margin: 0.75rem auto 1.5rem;
+}
+.btn-cta {
+  background: #fff;
+  color: #11b87a;
+  font-weight: 700;
+  padding: 0.75rem 2.5rem;
+  border-radius: 99px;
+  border: none;
+  font-size: 1.05rem;
+  transition: transform 0.2s;
+}
+.btn-cta:hover {
+  transform: scale(1.05);
+  color: #0ea36c;
 }
