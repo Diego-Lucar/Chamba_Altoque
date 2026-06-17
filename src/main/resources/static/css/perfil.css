@@ -1,0 +1,41 @@
+.profile-banner {
+    border-radius: 1.25rem !important;
+    overflow: hidden !important; /* Evita que el fondo degradado tape las esquinas redondeadas */
+}
+/* Redondeado de los contenedores principales según el prototipo */
+.rounded-custom, .card {
+    border-radius: 1.25rem !important;
+}
+
+/* Modificación de inputs y selects solo dentro de la tarjeta de perfil */
+.card .form-control, 
+.card .form-select {
+    border-radius: 0.75rem !important;
+    min-height: 52px !important;
+    background-color: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    font-size: 0.95rem;
+}
+
+/* Modificación de los iconos a la izquierda del input */
+.card .input-group-text {
+    border-radius: 0.75rem 0 0 0.75rem !important;
+    background-color: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    padding-left: 1.25rem;
+    padding-right: 1rem;
+}
+
+/* Ajuste de unión entre el icono y la caja de texto */
+.card .input-group .form-control,
+.card .input-group .form-select {
+    border-radius: 0 0.75rem 0.75rem 0 !important;
+    border-start-0: none !important;
+}
+
+/* Botón estilo óvalo (Pill) para guardar cambios */
+.btn-pill {
+    border-radius: 50rem !important;
+    padding: 0.6rem 2rem !important;
+    font-weight: 600;
+}

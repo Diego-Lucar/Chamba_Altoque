@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Dashboard - Chamba al Toque</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css" />
+    <link rel="stylesheet" th:href="@{/css/dashUsuario.css}" href="/css/dashUsuario.css" />
+</head>
+<body style="background-color: #f3f1f196;">
+
+    <header th:replace="~{layouts :: navbar}"></header>
+
+    <main class="container my-5" style="max-width: 1140px;">
+        
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <div>
+                <h1 class="fw-bold h2 m-0 text-dark">Mi Dashboard</h1>
+                <p class="text-muted m-0 small">Bienvenido de vuelta, Juan Pérez</p>
+            </div>
+            <button type="button" class="btn btn-white bg-white border border-light shadow-sm text-secondary rounded-3 px-3 py-2 d-flex align-items-center gap-2">
+                <i class="bi bi-gear-fill"></i> Configuración
+            </button>
+        </div>
+
+        <div class="card border-0 shadow-sm p-3 bg-white mb-4">
+            <form th:action="@{/servicios}" method="GET" class="row g-2">
+                <div class="col-md-10 position-relative">
+                    <div class="input-group">
+                        <span class="input-group-text bg-transparent border-0 text-muted"><i class="bi bi-search"></i></span>
+                        <input type="text" name="buscar" class="form-control bg-transparent border-0 ps-0" placeholder="Busca un servicio rápidamente..." />
+                    </div>
+                </div>
+                <div class="col-md-2 d-grid">
+                    <button type="submit" class="btn btn-green-main rounded-pill fw-semibold py-2">Buscar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="row g-4">
+            
+            <div class="col-lg-8">
+                
+                <div class="mb-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3 px-2">
+                        <h5 class="fw-bold text-dark m-0"><i class="bi bi-clock-history me-2 text-primary"></i>Mis Solicitudes</h5>
+                        <span class="text-muted small">2 total</span>
+                    </div>
+                    
+                    <div class="card border-0 shadow-sm p-4 bg-white mb-3">
+                        <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-2">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="avatar-dash fw-bold d-flex align-items-center justify-content-center" 
+                                     style="width: 44px; height: 44px; border-radius: 0.75rem; background-color: rgba(30, 58, 138, 0.1); color: #1E3A8A;">
+                                    CM
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold m-0 text-dark">Carlos Mendoza</h6>
+                                    <small class="text-muted">Instalación eléctrica</small>
+                                </div>
+                            </div>
+                            <span class="badge badge-pendiente px-3 py-1.5 small">Pendiente</span>
+                        </div>
+                        <p class="text-secondary small my-3">Necesito instalar luces LED en mi sala</p>
+                        <div class="d-flex align-items-center justify-content-between border-top pt-3">
+                            <span class="text-muted small">Fecha: 9/5/2026</span>
+                            <a href="#" class="text-green-link small">Ver perfil</a>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 shadow-sm p-4 bg-white">
+                        <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-2">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="avatar-dash fw-bold d-flex align-items-center justify-content-center" 
+                                     style="width: 44px; height: 44px; border-radius: 0.75rem; background-color: rgba(16, 185, 129, 0.1); color: #10B981;">
+                                    MR
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold m-0 text-dark">María Rodríguez</h6>
+                                    <small class="text-muted">Consulta nutricional</small>
+                                </div>
+                            </div>
+                            <span class="badge badge-completado px-3 py-1.5 small">Completado</span>
+                        </div>
+                        <p class="text-secondary small my-3">Plan nutricional para pérdida de peso</p>
+                        <div class="d-flex align-items-center justify-content-between border-top pt-3">
+                            <span class="text-muted small">Fecha: 2/5/2026</span>
+                            <a href="#" class="text-green-link small">Ver perfil</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3 px-2">
+                        <h5 class="fw-bold text-dark m-0"><i class="bi bi-star-fill me-2 text-warning"></i>Mis Calificaciones</h5>
+                        <span class="text-muted small">3 servicios pendientes</span>
+                    </div>
+                    
+                    <div class="card border-0 shadow-sm p-4 bg-white">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="avatar-dash fw-bold d-flex align-items-center justify-content-center" 
+                                     style="width: 44px; height: 44px; border-radius: 0.75rem; background-color: rgba(16, 185, 129, 0.1); color: #10B981;">
+                                    MR
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold m-0 text-dark">María Rodríguez</h6>
+                                    <small class="text-muted">Consulta nutricional</small>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-green-main rounded-pill px-4 fw-semibold btn-sm">Calificar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3 px-2">
+                        <h5 class="fw-bold text-dark m-0"><i class="bi bi-heart-fill me-2 text-danger"></i>Proveedores Favoritos</h5>
+                        <span class="text-muted small">3 favoritos</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+                
+                <div class="card border-0 shadow-sm p-4 text-center bg-white mb-4">
+                    <div class="rounded-circle text-white fw-bold d-flex align-items-center justify-content-center mx-auto mb-3 shadow-sm" 
+                         style="width: 80px; height: 80px; font-size: 1.75rem; background-color: #1E3A8A;">
+                        JP
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Juan Pérez</h5>
+                    <p class="text-muted small mb-4"><i class="bi bi-geo-alt-fill me-1 text-secondary"></i>Miraflores</p>
+                    <a th:href="@{/perfil}" class="btn btn-outline-secondary w-100 rounded-pill fw-semibold small py-2">
+                        Editar perfil
+                    </a>
+                </div>
+
+                <div class="card border-0 shadow-sm p-4 bg-white">
+                    <h6 class="fw-bold text-dark mb-3 border-bottom pb-2">Acciones rápidas</h6>
+                    <ul class="list-unstyled m-0 d-flex flex-column gap-3 small">
+                        <li>
+                            <a th:href="@{/servicios}" class="text-secondary text-decoration-none d-flex align-items-center gap-2">
+                                <i class="bi bi-search text-success fs-5"></i> Buscar servicios
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{/como-funciona}" class="text-secondary text-decoration-none d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle text-success fs-5"></i> Cómo funciona
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer th:replace="~{layouts :: footer}"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

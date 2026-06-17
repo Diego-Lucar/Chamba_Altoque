@@ -1,0 +1,40 @@
+
+
+/* Redondeado curvo idéntico al prototipo */
+.rounded-custom, .card, .avatar-dash {
+    border-radius: 1rem !important;
+}
+
+/* Color verde oficial del botón buscar y calificar */
+.btn-green-main {
+    background-color: #10B981 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.btn-green-main:hover {
+    background-color: #059669 !important;
+}
+
+/* Enlaces sutiles de la vista */
+.text-green-link {
+    color: #10B981 !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.text-green-link:hover {
+    color: #059669 !important;
+    text-decoration: underline;
+}
+
+/* Badges de estado con tintes suaves */
+.badge-pendiente {
+    background-color: #FEF3C7 !important;
+    color: #D97706 !important;
+}
+
+.badge-completado {
+    background-color: #D1FAE5 !important;
+    color: #059669 !important;
+}
