@@ -11,24 +11,25 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "categorias")
-public class Categoria {
+@Table(name = "servicios")
+public class Servicio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "Categoria es obligatoria")
     @Column(nullable = false)
     private String nombre;
+
+    @Column(length = 500)
+    private String descripcion;
 
 
     @ManyToMany(mappedBy = "categorias")
     private List<Freelancer> freelancers = new ArrayList<>();
 
-    public Categoria() {
+    public Servicio() {
     }
 
     public Integer getId() {

@@ -55,7 +55,7 @@ public class Freelancer {
         joinColumns = @JoinColumn(name = "freelancer_id"),
         inverseJoinColumns = @JoinColumn(name = "categoria_id")
     )
-    private List<Categoria> categorias = new ArrayList<>();
+    private List<Servicio> categorias = new ArrayList<>();
 
     @Lob
     @Column(name = "foto_perfil", columnDefinition = "LONGBLOB")
