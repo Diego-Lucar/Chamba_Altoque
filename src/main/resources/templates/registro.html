@@ -1,731 +1,390 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro - Chamba al Toque</title>
-
+    <title>Registro</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
     />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-
-    <link
-      rel="stylesheet"
-      th:href="@{/css/inicio.css}"
-      href="/css/inicio.css"
-    />
-    <link
-      rel="stylesheet"
-      th:href="@{/css/registro.css}"
-      href="/css/registro.css"
-    />
+    <link rel="stylesheet" th:href="@{/css/registro.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
   </head>
-
   <body>
-    <header
-      class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3"
+    <nav th:replace="layouts :: navbar"></nav>
+
+    <main
+      class="d-flex align-items-center justify-content-center py-5"
+      style="min-height: calc(100vh - 160px)"
     >
-      <div class="container">
-        <a
-          class="navbar-brand fw-bold"
-          th:href="@{/}"
-          style="color: var(--blue-main)"
-          >Chamba al Toque</a
+      <div class="card-step p-4 p-md-5 mx-3" id="stepSelector">
+        <a th:href="@{/}" class="text-decoration-none text-secondary"
+          ><i class="bi bi-arrow-left-short"></i> Regresar al inicio</a
         >
-        <div class="navbar-nav mx-auto d-none d-lg-flex flex-row gap-4">
-          <a class="nav-link text-secondary" th:href="@{/}">Inicio</a>
-          <a class="nav-link text-secondary" th:href="@{/#servicios}"
-            >Servicios</a
+        <h2 class="fw-semibold mb-1">Crear cuenta</h2>
+        <p class="text-muted mb-4">Selecciona el tipo de registro</p>
+
+        <div class="d-flex gap-3 mb-4">
+          <label
+            class="option-card flex-fill"
+            onclick="seleccionarTipo('usuario')"
+            id="cardUsuario"
           >
-          <a class="nav-link text-secondary" th:href="@{/como-funciona}"
-            >Cómo funciona</a
+            <input type="radio" name="tipo" value="usuario" />
+            <div class="fs-1 mb-2"><i class="bi bi-person fs-1 icon"></i></div>
+            <h5 class="fw-semibold mb-1 fw-bold">Usuario</h5>
+            <p class="text-muted small mb-0">Busco contratar servicios</p>
+          </label>
+          <label
+            class="option-card flex-fill"
+            onclick="seleccionarTipo('freelancer')"
+            id="cardFreelancer"
           >
+            <input type="radio" name="tipo" value="freelancer" />
+            <div class="fs-1 mb-2">
+              <i class="bi bi-briefcase fs-1 icon"></i>
+            </div>
+            <h5 class="fw-semibold mb-1 fw-bold">Freelancer</h5>
+            <p class="text-muted small mb-0">Ofrezco mis servicios</p>
+          </label>
         </div>
-        <div class="ms-auto">
-          <a class="text-dark fs-5" th:href="@{/}"
-            ><i class="bi bi-x-lg"></i
-          ></a>
-        </div>
+
+        <button
+          class="btn w-100 py-2 fw-semibold main-button"
+          disabled
+          id="btnContinue"
+          onclick="continuar()"
+        >
+          Continuar
+        </button>
       </div>
-    </header>
 
-    <div class="container py-5">
-      <div class="register-card">
-        <div class="register-header">
-          <h2 class="register-title">Crear Cuenta</h2>
-          <p class="register-subtitle">Únete a Chamba al Toque</p>
-        </div>
-
-        <div class="progress-container">
-          <div class="progress-labels">
-            <span id="stepLabel" class="step-label">Paso 1 de 3</span>
-            <span id="stepPercent" class="step-percent">33%</span>
-          </div>
-          <div class="progress-bar-bg">
-            <div id="progressBar" class="progress-bar-fill"></div>
-          </div>
-        </div>
-
-        <div id="step1">
-          <p class="step-title">¿Qué tipo de cuenta necesitas?</p>
-          <div class="grid-selection">
-            <div
-              id="typeUsuario"
-              onclick="selectType('usuario')"
-              class="type-card selected"
-            >
-              <div class="type-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                </svg>
-              </div>
-              <div class="type-name">Usuario</div>
-              <div class="type-desc">Busco servicios profesionales</div>
-              <div id="checkUsuario" class="check-icon">
-                <svg
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  viewBox="0 0 24 24"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M8 12l3 3 5-5" />
-                </svg>
-              </div>
-            </div>
-
-            <div
-              id="typeProveedor"
-              onclick="selectType('proveedor')"
-              class="type-card unselected"
-            >
-              <div class="type-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <rect x="2" y="7" width="20" height="14" rx="2" />
-                  <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-                </svg>
-              </div>
-              <div class="type-name">Proveedor</div>
-              <div class="type-desc">Ofrezco servicios profesionales</div>
-              <div id="checkProveedor" class="check-icon" style="display: none">
-                <svg
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  viewBox="0 0 24 24"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M8 12l3 3 5-5" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <button onclick="goStep(2)" class="btn-primary-block">
-            Continuar
+      <div
+        class="card-step p-4 p-md-5 mx-3"
+        id="stepForm"
+        style="display: none"
+      >
+        <div class="d-flex align-items-center mb-3">
+          <button class="btn btn-soft btn-sm me-3" onclick="volver()">
+            ← Atrás
           </button>
-          <p class="login-redirect-text">
-            ¿Ya tienes cuenta?
-            <a th:href="@{/login}" href="/login" class="login-link"
-              >Inicia sesión aquí</a
-            >
-          </p>
+          <h2 class="fw-bold mb-0" id="formTitle">Registro</h2>
         </div>
-
-        <div id="step2prov" style="display: none">
-          <p class="form-section-title">Datos Básicos</p>
-          <form class="form-group-list was-validated" method="post">
-            <div>
-              <label class="form-label">Nombre completo</label>
-              <div class="input-container">
-                <span class="input-icon-left"
-                  ><svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle cx="12" cy="8" r="4" />
-                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" /></svg
+        <div class="form-scroll">
+          <!--? REGISTRAR USUARIO -->
+          <form
+            id="formUsuario"
+            th:action="@{/registro/guardarUsuario}"
+            th:object="${usuario}"
+            method="post"
+            style="display: none"
+            novalidate
+          >
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Nombre completo</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-person"></i
                 ></span>
                 <input
                   type="text"
+                  class="form-control rounded-pill"
+                  th:field="*{nombre}"
                   placeholder="Tu nombre completo"
-                  class="form-input"
+                />
+              </div>
+              <div th:errors="*{nombre}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Correo electrónico</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('correo')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-envelope"></i
+                ></span>
+                <input
+                  type="email"
+                  class="form-control rounded-pill"
+                  th:field="*{correo}"
+                  placeholder="ejemplo@gmail.com"
+                />
+              </div>
+              <div th:errors="*{correo}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Teléfono</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('telefono')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-telephone"></i
+                ></span>
+                <input
+                  type="tel"
+                  class="form-control rounded-pill"
+                  th:field="*{telefono}"
+                  placeholder="999 999 999"
+                />
+              </div>
+              <div th:errors="*{telefono}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Distrito</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('distrito')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-geo-alt"></i
+                ></span>
+                <select
+                  class="form-select rounded-pill"
+                  th:field="*{distrito}"
+                >
+                  <option value="">Selecciona tu distrito</option>
+                  <option
+                    th:each="distrito : ${distritos}"
+                    th:value="${distrito.id}"
+                    th:text="${distrito.nombre}"
+                  ></option>
+                </select>
+              </div>
+              <div th:errors="*{distrito}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Contraseña</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-lock"></i
+                ></span>
+                <input
+                  type="password"
+                  class="form-control rounded-pill"
+                  th:field="*{password}"
+                  placeholder="••••••••"
+                />
+              </div>
+              <div th:errors="*{password}" class="invalid-feedback"></div>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100 py-2 fw-semibold"
+              style="background: #4a7ba8; border: none"
+            >
+              Registrarse
+            </button>
+          </form>
+          <!--? REGISTRAR FREELANCER -->
+          <form
+            id="formFreelancer"
+            th:action="@{/registro/guardarFreelancer}"
+            th:object="${freelancer}"
+            method="post"
+            enctype="multipart/form-data"
+            style="display: none"
+            novalidate
+          >
+            <div class="mb-3">
+              <label class="form-label fw-medium">Nombre completo</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-person"></i
+                ></span>
+                <input
+                  type="text"
+                  class="form-control rounded-pill"
+                  th:field="*{nombre}"
+                  placeholder="Tu nombre completo"
+                />
+              </div>
+              <div th:errors="*{nombre}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Correo electrónico</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('correo')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-envelope"></i
+                ></span>
+                <input
+                  type="email"
+                  class="form-control rounded-pill"
+                  th:field="*{correo}"
+                  placeholder="ejemplo@gmail.com"
+                />
+              </div>
+              <div th:errors="*{correo}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Teléfono</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('telefono')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-telephone"></i
+                ></span>
+                <input
+                  type="tel"
+                  class="form-control rounded-pill"
+                  th:field="*{telefono}"
+                  placeholder="999 999 999"
+                />
+              </div>
+              <div th:errors="*{telefono}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Distrito</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('distrito')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-geo-alt"></i
+                ></span>
+                <select
+                  class="form-select rounded-pill"
+                  th:field="*{distrito}"
+                >
+                  <option value="">Selecciona tu distrito</option>
+                  <option
+                    th:each="distrito : ${distritos}"
+                    th:value="${distrito.id}"
+                    th:text="${distrito.nombre}"
+                  ></option>
+                </select>
+              </div>
+              <div th:errors="*{distrito}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Contraseña</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-lock"></i
+                ></span>
+                <input
+                  type="password"
+                  class="form-control rounded-pill"
+                  th:field="*{password}"
+                  placeholder="••••••••"
+                />
+              </div>
+              <div th:errors="*{password}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Años de experiencia</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('experiencia')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-clock-history"></i
+                ></span>
+                <input
+                  type="number"
+                  class="form-control rounded-pill"
+                  th:field="*{experiencia}"
+                  placeholder="0"
+                />
+              </div>
+              <div th:errors="*{experiencia}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Categorías de servicio</label>
+              <div id="categoriaCards" class="d-flex flex-wrap gap-2" th:classappend="${#fields.hasErrors('categorias')} ? 'is-invalid' : ''">
+                <div
+                  th:each="servicio : ${servicios}"
+                  class="cat-card"
+                  th:data-id="${servicio.id}"
+                  onclick="toggleCategoria(this)"
+                >
+                  <div class="cat-card-body">
+                    <h6
+                      class="cat-card-title"
+                      th:text="${servicio.nombre}"
+                    ></h6>
+                    <small
+                      class="cat-card-desc"
+                      th:text="${servicio.descripcion}"
+                    ></small>
+                  </div>
+                  <input
+                    type="checkbox"
+                    th:field="*{categorias}"
+                    th:value="${servicio.id}"
+                    class="cat-checkbox"
+                  />
+                </div>
+              </div>
+              <div th:errors="*{categorias}" class="invalid-feedback"></div>
+            </div>
+            <!--? EN EL CASO DE FOTO DE PERFIL SE USA EN 'NAME' EL NOMBRE 'fotoPerfilFile' PARA QUE EL CONTROLADOR PUEDA RECONOCERLO COMO UN ARCHIVO Y PROCESARLO CORRECTAMENTE. SI SE USA OTRO NOMBRE, EL CONTROLADOR NO PODRÁ OBTENER EL ARCHIVO Y SE PRODUCIRÁ UN ERROR. -->
+            <div class="mb-3">
+              <label class="form-label fw-medium">Foto de perfil</label>
+              <div
+                class="upload-area"
+                onclick="document.getElementById('fotoInput').click()"
+              >
+                <div class="upload-area-content">
+                  <i class="bi bi-camera fs-1"></i>
+                  <span class="upload-area-text"
+                    >Haz click para cargar imagen</span
+                  >
+                  <span class="upload-area-file d-none"></span>
+                </div>
+                <input
+                  type="file"
+                  id="fotoInput"
+                  name="fotoPerfilFile"
+                  accept="image/*"
+                  class="d-none"
+                  onchange="mostrarNombreArchivo(this)"
                   required
                 />
               </div>
             </div>
-            <div>
-              <label class="form-label">Correo electrónico</label>
-              <div class="input-container">
-                <span class="input-icon-left"
-                  ><svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <path d="M2 7l10 7 10-7" /></svg
-                ></span>
-                <input
-                  type="email"
-                  placeholder="tu@email.com"
-                  class="form-input"
-                />
-              </div>
-            </div>
-            <div>
-              <label class="form-label">Teléfono</label>
-              <div class="input-container">
-                <span class="input-icon-left"
-                  ><svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-                    /></svg
-                ></span>
-                <input
-                  type="tel"
-                  placeholder="+51 999 999 999"
-                  class="form-input"
-                />
-              </div>
-            </div>
-            <div>
-              <label class="form-label">Distrito (Lima)</label>
-              <div class="input-container">
-                <span class="input-icon-left"
-                  ><svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                    /></svg
-                ></span>
-                <select class="form-select">
-                  <option value="">Selecciona tu distrito</option>
-                  <option></option>
-                </select>
-              </div>
-            </div>
-            <div>
-              <label class="form-label">Contraseña</label>
-              <div class="input-container">
-                <span class="input-icon-left"
-                  ><svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <rect x="3" y="11" width="18" height="11" rx="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg
-                ></span>
-                <input
-                  type="password"
-                  id="passInputProv"
-                  placeholder="••••••••"
-                  class="form-input form-input-pass"
-                />
-                <span
-                  onclick="togglePass('passInputProv')"
-                  class="input-icon-right"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                    <circle cx="12" cy="12" r="3" />
-                  </svg>
-                </span>
-              </div>
-            </div>
-            <div>
-              <label class="form-label">Confirmar contraseña</label>
-              <div class="input-container">
-                <span class="input-icon-left"
-                  ><svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <rect x="3" y="11" width="18" height="11" rx="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg
-                ></span>
-                <input
-                  type="password"
-                  placeholder="••••••••"
-                  class="form-input"
-                />
-              </div>
-            </div>
-            <div class="btn-grid-actions">
-              <button onclick="goStep(1)" class="btn-nav-back" type="button">
-                Atrás
-              </button>
-
-              <button class="btn-nav-next" type="submit">Siguiente</button>
-            </div>
-          </form>
-
-          <p class="login-redirect-text">
-            ¿Ya tienes cuenta?
-            <a th:href="@{/login}" href="/login" class="login-link"
-              >Inicia sesión aquí</a
-            >
-          </p>
-        </div>
-
-        <div id="step3prov" style="display: none">
-          <p class="form-section-title" style="margin-bottom: 0.25rem">
-            Servicios que Ofreces
-          </p>
-          <p class="form-section-subtitle">
-            Selecciona las categorías de servicios que ofreces
-          </p>
-
-          <div class="pref-grid-container">
-            <div class="pref-card-prov" onclick="togglePrefProv(this)">
-              <div class="pref-card-title">Técnicos</div>
-              <div class="pref-card-desc">
-                Electricistas, plomeros, técnicos en computadoras y más
-              </div>
-            </div>
-            <div class="pref-card-prov" onclick="togglePrefProv(this)">
-              <div class="pref-card-title">Salud</div>
-              <div class="pref-card-desc">
-                Enfermeros, nutricionistas, terapeutas y profesionales de salud
-              </div>
-            </div>
-            <div class="pref-card-prov" onclick="togglePrefProv(this)">
-              <div class="pref-card-title">Educación</div>
-              <div class="pref-card-desc">
-                Profesores particulares, tutores académicos y coaches
-              </div>
-            </div>
-            <div class="pref-card-prov" onclick="togglePrefProv(this)">
-              <div class="pref-card-title">Asesorías</div>
-              <div class="pref-card-desc">
-                Consultores legales, contables, financieros y empresariales
-              </div>
-            </div>
-            <div class="pref-card-prov" onclick="togglePrefProv(this)">
-              <div class="pref-card-title">Hogar</div>
-              <div class="pref-card-desc">
-                Limpieza, jardinería, reparaciones y mantenimiento del hogar
-              </div>
-            </div>
-          </div>
-
-          <div class="field-margin-bottom">
-            <label class="form-label">Años de experiencia</label>
-            <select class="select-experience">
-              <option value="">Selecciona tu experiencia</option>
-              <option>Menos de 1 año</option>
-              <option>1 - 2 años</option>
-              <option>3 - 5 años</option>
-              <option>6 - 10 años</option>
-              <option>Más de 10 años</option>
-            </select>
-          </div>
-
-          <div class="field-margin-bottom">
-            <label class="form-label">Foto de perfil</label>
-            <input
-              type="file"
-              id="fotoPerfilInput"
-              accept="image/*"
-              style="display: none"
-              onchange="handleFotoPerfilChange(this)"
-            />
-            <div
-              onclick="document.getElementById('fotoPerfilInput').click()"
-              id="fotoPerfilBox"
-              class="upload-dashed-box"
-            >
+            <!--? EN EL CASO DE LOS DOCUMENTOS SE USA 'NAME' COMO 'documentosFiles' Y SE AGREGA EL ATRIBUTO 'MULTIPLE' PARA QUE EL CONTROLADOR PUEDA RECONOCERLO COMO UNA LISTA DE ARCHIVOS Y PROCESARLOS CORRECTAMENTE. SI SE USA OTRO NOMBRE O NO SE AGREGA EL ATRIBUTO 'MULTIPLE', EL CONTROLADOR NO PODRÁ OBTENER LOS ARCHIVOS Y SE PRODUCIRÁ UN ERROR. -->
+            <div class="mb-3">
+              <label class="form-label fw-medium"
+                >Documentos (CV, certificados, etc.)</label
+              >
               <div
-                id="fotoPerfilPreview"
-                style="display: none; margin-bottom: 0.5rem"
+                class="upload-area"
+                onclick="document.getElementById('docsInput').click()"
               >
-                <img
-                  id="fotoPerfilImg"
-                  src=""
-                  alt="preview"
-                  class="profile-preview-img"
+                <div class="upload-area-content">
+                  <i class="bi bi-file-earmark-arrow-up fs-1"></i>
+                  <span class="upload-area-text"
+                    >Haz click para cargar documentos</span
+                  >
+                  <span class="upload-area-file d-none"></span>
+                </div>
+                <input
+                  type="file"
+                  id="docsInput"
+                  name="documentosFiles"
+                  multiple
+                  class="d-none"
+                  onchange="mostrarNombreArchivos(this)"
+                  required
                 />
               </div>
-              <div id="fotoPerfilIcon">
-                <svg
-                  width="28"
-                  height="28"
-                  fill="none"
-                  stroke="#9ca3af"
-                  stroke-width="1.5"
-                  viewBox="0 0 24 24"
-                  class="upload-icon-svg"
-                >
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="17 8 12 3 7 8" />
-                  <line x1="12" y1="3" x2="12" y2="15" />
-                </svg>
-              </div>
-              <p id="fotoPerfilText" class="upload-main-text">
-                Haz clic para subir tu foto
-              </p>
             </div>
-          </div>
-
-          <div class="field-margin-bottom" style="margin-bottom: 0.8rem">
-            <label class="form-label">Documentos (DNI, certificados)</label>
-            <input
-              type="file"
-              id="documentosInput"
-              accept=".pdf,image/*"
-              multiple
-              style="display: none"
-              onchange="handleDocumentosChange(this)"
-            />
-            <div
-              onclick="document.getElementById('documentosInput').click()"
-              id="documentosBox"
-              class="upload-dashed-box"
+            <button
+              type="submit"
+              class="btn btn-primary w-100 py-2 fw-semibold"
+              style="background: #4a7ba8; border: none"
             >
-              <svg
-                width="28"
-                height="28"
-                fill="none"
-                stroke="#9ca3af"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                class="upload-icon-svg"
-                id="docIcon"
-              >
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                <polyline points="22 4 12 14.01 9 11.01" />
-              </svg>
-              <p
-                id="documentosText"
-                class="upload-main-text"
-                style="margin-bottom: 0.2rem"
-              >
-                Haz clic para subir documentos
-              </p>
-              <p id="documentosSubtext" class="upload-sub-text">
-                PDF, JPG o PNG
-              </p>
-            </div>
-          </div>
-
-          <div class="verify-profile-container">
-            <a href="#" class="verify-profile-link">
-              <svg
-                width="14"
-                height="14"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                <polyline points="22 4 12 14.01 9 11.01" />
-              </svg>
-              Verifica tu perfil para ganar confianza
-            </a>
-          </div>
-
-          <div class="btn-grid-actions">
-            <button onclick="goStep(2)" class="btn-nav-back">Atrás</button>
-            <button onclick="finishRegister()" class="btn-nav-next">
-              Crear Cuenta
+              Guardar
             </button>
-          </div>
-          <p class="login-redirect-text">
-            ¿Ya tienes cuenta?
-            <a th:href="@{/login}" href="/login" class="login-link"
-              >Inicia sesión aquí</a
-            >
-          </p>
+          </form>
         </div>
-
-        <div id="step2" style="display: none">
-          <p class="form-section-title">Datos Básicos</p>
-          <form class="form-group-list" th:action="@{/guardar}" th:object="${usuario}" method="post">
-            <div>
-              <label class="form-label">Nombre completo</label>
-              <div class="input-container">
-                <span class="input-icon-left"
-                  ><svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle cx="12" cy="8" r="4" />
-                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" /></svg
-                ></span>
-                <input
-                  type="text"
-                  placeholder="Tu nombre completo"
-                  class="form-input"
-                  th:field="*{nombre}"
-                />
-              </div>
-            </div>
-            <div>
-              <label class="form-label">Correo electrónico</label>
-              <div class="input-container">
-                <span class="input-icon-left"
-                  ><svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <path d="M2 7l10 7 10-7" /></svg
-                ></span>
-                <input
-                  type="email"
-                  placeholder="tu@email.com"
-                  class="form-input"
-                    th:field="*{email}"
-                />
-              </div>
-            </div>
-            <div>
-              <label class="form-label">Teléfono</label>
-              <div class="input-container">
-                <span class="input-icon-left"
-                  ><svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-                    /></svg
-                ></span>
-                <input
-                  type="tel"
-                  placeholder="+51 999 999 999"
-                  class="form-input"
-                  th:field="*{telefono}"
-                />
-              </div>
-            </div>
-            <div>
-              <label class="form-label">Distrito (Lima)</label>
-              <div class="input-container">
-                <span class="input-icon-left"
-                  ><svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                    /></svg
-                ></span>
-                <select class="form-select" th:field="*{distrito}">
-                  <option value="">Selecciona tu distrito</option>
-                  <option th:each="distrito : ${distritos}" th:value="${distrito.id}" th:text="${distrito.nombre}"></option>
-                </select>
-              </div>
-            </div>
-            <div>
-              <label class="form-label">Contraseña</label>
-              <div class="input-container">
-                <span class="input-icon-left"
-                  ><svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <rect x="3" y="11" width="18" height="11" rx="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg
-                ></span>
-                <input
-                  type="password"
-                  id="passInput"
-                  placeholder="••••••••"
-                  class="form-input form-input-pass"
-                  th:field="*{passwoard}"
-                />
-                <span
-                  onclick="togglePass('passInput', 'eyePass')"
-                  class="input-icon-right"
-                  id="eyePass"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                    <circle cx="12" cy="12" r="3" />
-                  </svg>
-                </span>
-              </div>
-            </div>
-            <div>
-              <label class="form-label">Confirmar contraseña</label>
-              <div class="input-container">
-                <span class="input-icon-left"
-                  ><svg
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <rect x="3" y="11" width="18" height="11" rx="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg
-                ></span>
-                <input
-                  type="password"
-                  placeholder="••••••••"
-                  class="form-input"
-                />
-              </div>
-            </div>
-            <button type="submit">Registrar</button>
-        </form>
-          <div class="btn-grid-actions">
-            <!-- <button onclick="goStep(1)" class="btn-nav-back">Atrás</button> -->
-            <button onclick="goStep(3)" class="btn-nav-next" type="submit">Continuar</button>
-          </div>
-          <p class="login-redirect-text">
-            ¿Ya tienes cuenta?
-            <a th:href="@{/login}" href="/login" class="login-link"
-              >Inicia sesión aquí</a
-            >
-          </p>
-        </div>
-
-        <!-- <div id="step3" style="display: none">
-          <p class="form-section-title" style="margin-bottom: 0.3rem">
-            Preferencias
-          </p>
-          <p class="form-section-subtitle">
-            Selecciona las categorías que más te interesan
-          </p>
-
-          <div id="prefGrid" class="grid-selection pref-grid-user">
-            <div class="pref-card" onclick="togglePref(this)">
-              <div class="pref-card-title pref-card-title-user">Técnicos</div>
-              <div class="pref-card-desc pref-card-desc-user">
-                Electricistas, plomeros, técnicos en computadoras y más
-              </div>
-            </div>
-            <div class="pref-card" onclick="togglePref(this)">
-              <div class="pref-card-title pref-card-title-user">Salud</div>
-              <div class="pref-card-desc pref-card-desc-user">
-                Enfermeros, nutricionistas, terapeutas y profesionales de salud
-              </div>
-            </div>
-            <div class="pref-card" onclick="togglePref(this)">
-              <div class="pref-card-title pref-card-title-user">Educación</div>
-              <div class="pref-card-desc pref-card-desc-user">
-                Profesores particulares, tutores académicos y coaches
-              </div>
-            </div>
-            <div class="pref-card" onclick="togglePref(this)">
-              <div class="pref-card-title pref-card-title-user">Asesorías</div>
-              <div class="pref-card-desc pref-card-desc-user">
-                Consultores legales, contables, financieros y empresariales
-              </div>
-            </div>
-            <div class="pref-card" onclick="togglePref(this)">
-              <div class="pref-card-title pref-card-title-user">Hogar</div>
-              <div class="pref-card-desc pref-card-desc-user">
-                Limpieza, jardinería, reparaciones y mantenimiento del hogar
-              </div>
-            </div>
-          </div>
-
-          <div class="btn-grid-actions">
-            <button onclick="goStep(2)" class="btn-nav-back">Atrás</button>
-            <button onclick="finishRegister()" class="btn-nav-next">
-              Crear Cuenta
-            </button>
-          </div>
-          <p class="login-redirect-text">
-            ¿Ya tienes cuenta?
-            <a th:href="@{/login}" href="/login" class="login-link"
-              >Inicia sesión aquí</a
-            >
-          </p>
-        </div> -->
       </div>
-    </div>
+    </main>
 
-    <script th:src="@{/js/registro.js}" src="/js/registro.js"></script>
+    <footer th:replace="layouts :: footer"></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script th:inline="javascript">
+      /*<![CDATA[*/
+      var tipoRegistro = /*[[${tipoRegistro}]]*/ "";
+      /*]]>*/
+    </script>
+    <script th:src="@{/js/registro.js}"></script>
   </body>
 </html>

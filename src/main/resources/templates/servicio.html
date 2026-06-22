@@ -24,7 +24,7 @@
     <div
       class="container-fluid mt-4 d-flex flex-md-row flex-column justify-content-center gap-5"
     >
-      <!-- FILTROS -->
+      <!--* FILTROS -->
       <div class="col-md-2 col-12 bg-white p-4 rounded-4 shadow">
         <h4 class="fs-5"><i class="bi bi-funnel text-primary"></i> Filtros</h4>
         <div class="mt-3 d-flex flex-column gap-2">
@@ -35,24 +35,23 @@
             placeholder="Servicio o palabra clave..."
           />
         </div>
+        <!-- ? FILTRAR POR SERVICIO: LOS NOMBRES DE LOS SERVICIOS FUERON TRAIDOS DESDE LA BASE DE DATOS, SE USÓ EL ATRIBUTO "TH:EACH" -->
         <div class="mt-3 d-flex flex-column gap-2">
           <span>Categoria</span>
           <select class="form-select rounded-pill p-2">
-            <option value="">Seleccionar categoria</option>
-            <option value="1">Tecnico</option>
-            <option value="2">Salud</option>
-            <option value="3">Educacion</option>
+            <option value="" disabled selected>Seleccionar categoria</option>
+            <option value="1" th:each="servicios : ${listarServicios}" th:text="${servicios.nombre}"></option>
           </select>
         </div>
+        <!--? FILTRAR POR DISTRITO: LOS NOMBRES DE LOS DISTRITOS FUERON TRAIDOS DESDE LA BASE DE DATOS, SE USÓ EL ATRIBUTO "TH:EACH" -->
         <div class="mt-3 d-flex flex-column gap-2">
           <span>Distrito</span>
           <select class="form-select rounded-pill p-2">
-            <option value="">Seleccionar distrito</option>
-            <option value="1">San Juan de Lurigancho</option>
-            <option value="2">Breña</option>
-            <option value="3">La Victoria</option>
+            <option value="" disabled selected>Seleccionar distrito</option>
+            <option value="1" th:each="distritos : ${listarDistritos}" th:text="${distritos.nombre}"></option>
           </select>
         </div>
+        <!--! FILTRAR POR CALIFACION QUEDA PENDIENTE DE IMPLEMENTACION -->
         <div class="mt-3 d-flex flex-column gap-2">
           <span>Calificacion minima</span>
           <div>
@@ -80,17 +79,27 @@
           </div>
         </div>
       </div>
-      <!-- CARDS DE PROFESIONALES -->
+      <!--* CARDS DE PROFESIONALES -->
       <div class="col-md-8">
         <div class="row">
-          <div class="col-md-6 mb-4">
-            <div class="card h-100 shadow">
+          <div class="col-md-6 mb-4" th:each="freelancer : ${listarFreelancers}">
+            <div class="card h-100 shadow" >
               <div class="position-relative">
+                <!--? IMAGEN DEL FREELANCER -->
                 <img
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+                  th:if="${freelancer.imagenBase64 != null}"
+                  th:src="'data:image/jpg;base64,' + ${freelancer.imagenBase64}"
+                  th:alt="${freelancer.nombre}"
                   class="card-img-top"
                   alt="profesional"
-                  style="height: 200px; object-fit: cover"
+                  style="height: 200px; object-fit: cover;"
+                />
+                <img
+                  th:unless="${freelancer.imagenBase64 != null}"
+                  th:src="@{/images/default-profile.jpg}"
+                  class="card-img-top"
+                  alt="default"
+                  style="height: 200px; object-fit: cover;"
                 />
                 <span
                   class="position-absolute top-0 end-0 bg-success text-white rounded-circle p-1 m-2 d-flex align-items-center justify-content-center"
@@ -100,12 +109,20 @@
                 </span>
               </div>
               <div class="card-body">
-                <h5 class="fw-bold mb-1">Carlos Gutierrez</h5>
-                <p class="text-muted mb-2">Electricista Profesional</p>
-                <p class="mb-1 small">
-                  <i class="bi bi-geo-alt text-secondary me-1"></i>San Juan de
-                  Lurigancho
-                </p>
+                <!--? NOMBRE DEL FREELANCER -->
+                <h5 class="fw-bold mb-1" th:text="${freelancer.nombre}">Carlos Gutierrez</h5>
+                <!--? SERVICIOS QUE OFRECE EL FREELANCER -->
+                <div class="d-flex flex-wrap gap-1 mb-2">
+                  <th:block th:each="cat : ${freelancer.categorias}">
+                    <span th:text="${cat.nombre}" class="badge bg-success text-light"></span>
+                  </th:block>
+                </div>
+                <!--? DISTRITO DEL FREELANCER -->
+                <div class="d-flex flex-row gap-2">
+                  <i class="bi bi-geo-alt text-secondary me-1"></i>
+                  <span th:text="${freelancer.distrito.nombre}">San Juan de Lurigancho</span>
+                </div>
+                <!--! LA CALIFICACION QUEDA PENDIENTE DE IMPLEMENTACION -->
                 <p class="mb-0 small fw-bold">
                   <i class="bi bi-star-fill me-1 text-success"></i>4.9
                   <span class="text-muted">(127 reseñas)</span>
@@ -119,7 +136,7 @@
                 >
                 <a
                   href="#"
-                  th:href="@{/solicitud}"
+                  th:href="@{/servicios/solicitud/{id}(id=${freelancer.id})}"
                   class="btn btn-success btn-sm rounded-pill"
                   >Contactar</a
                 >

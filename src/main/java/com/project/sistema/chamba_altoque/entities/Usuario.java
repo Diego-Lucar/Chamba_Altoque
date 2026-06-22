@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "usuarios")
@@ -39,6 +40,14 @@ public class Usuario {
     @Size(min = 6, max = 255, message = "La contraseña debe tener entre 6 y 255 caracteres")
     @Column(name = "password", nullable = false, length = 255)
     private String password;
+
+    @Column(name = "fecha_registro", nullable = false, updatable = false)
+    private LocalDateTime fechaRegistro;
+
+    @PrePersist
+    protected void prePersist() {
+        this.fechaRegistro = LocalDateTime.now();
+    }
 
     public Usuario() {}
 
@@ -88,5 +97,13 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public LocalDateTime getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(LocalDateTime fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
     }
 }

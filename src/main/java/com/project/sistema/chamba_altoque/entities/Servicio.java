@@ -48,5 +48,23 @@ public class Servicio {
         this.nombre = nombre;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public List<Freelancer> getFreelancers() {
+        return freelancers;
+    }
+
+    public void setFreelancers(List<Freelancer> freelancers) {
+        this.freelancers = freelancers;
+    }
+
+    
+
     
 }

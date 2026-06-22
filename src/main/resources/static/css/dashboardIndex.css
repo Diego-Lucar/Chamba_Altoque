@@ -1,4 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -23,7 +27,7 @@ body {
   margin: 0;
   color: var(--text-main);
   background: var(--page-bg);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 a {
@@ -412,37 +416,37 @@ a {
   background: #dce9ff;
 }
 
-.accions-panel{
+.accions-panel {
   background-color: var(--panel-bg);
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 2px 6px rgba(1, 16, 46, 0.06);
 }
-.accions-panel h3{
+.accions-panel h3 {
   margin: 0 0 16px;
   color: var(--text-main);
   font-size: 22px;
   font-weight: 600;
 }
-.action-item{
+.action-item {
   border-radius: 14px;
   border: 3px solid var(--border-color);
   width: 270px;
   height: 100px;
-  &:hover{
+  &:hover {
     border-color: #3052cd9e;
     background-color: #92afd94e;
   }
 }
-.action-item > i{
+.action-item > i {
   color: var(--primary-blue);
 }
-.val_filters > a{
+.val_filters > a {
   background-color: var(--panel-bg);
   border: 3px solid var(--border-color);
   border-radius: 12px;
   color: var(--text-muted);
-  &:hover{
+  &:hover {
     background-color: var(--primary-blue);
     color: white;
     border-color: var(--primary-blue);

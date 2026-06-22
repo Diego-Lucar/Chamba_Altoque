@@ -42,3 +42,26 @@ VALUES ('Ancón'),
     ('Surquillo'),
     ('Villa El Salvador'),
     ('Villa María del Triunfo');
+
+INSERT INTO
+    servicios (nombre, descripcion)
+VALUES (
+        'Técnicos',
+        'Electricistas, plomeros, técnicos en computadoras y más'
+    ),
+    (
+        'Salud',
+        'Enfermeros, nutricionistas, terapeutas y profesionales de salud'
+    ),
+    (
+        'Educación',
+        'Profesores particulares, tutores académicos y coaches'
+    ),
+    (
+        'Asesorías',
+        'Consultores legales, contables, financieros y empresariales'
+    ),
+    (
+        'Hogar',
+        'Limpieza, jardinería, reparaciones y mantenimiento del hogar'
+    );
