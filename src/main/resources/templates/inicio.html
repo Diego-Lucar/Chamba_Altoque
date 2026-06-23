@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inicio</title>
+  <title>Inicio | Chamba al Toque</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" th:href="@{/css/inicio.css}" />
@@ -127,7 +127,7 @@
             identidad y certificaciones</span
           >
         </div>
-        <a href="" class="text-decoration-none text-primary mt-3 fw-bold"
+        <a th:href="@{/como-funciona}" class="text-decoration-none text-primary mt-3 fw-bold"
           >Ver como funciona <i class="bi bi-chevron-right"></i
         ></a>
       </div>
@@ -309,11 +309,11 @@
       </div>
       <div class="text-center mt-5 d-flex justify-content-center gap-4">
         <a
-          href=""
+          th:href="@{/servicios}"
           class="btn btn-light rounded-4 p-3 text-primary-emphasis fw-medium"
           >Explorar servicios <i class="bi bi-chevron-right"></i
         ></a>
-        <a href="" class="btn btn-success rounded-4 p-3 fw-medium"
+        <a th:href="@{/registro(tipo='freelancer')}" class="btn btn-success rounded-4 p-3 fw-medium"
           >Conviertete en proveedor</a
         >
       </div>
