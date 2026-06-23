@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: #f3f1f196;
+}
+
+.navbar-brand {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  color: #1417ad;
+}
+.nav-link {
+  color: #769fcd;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+footer {
+  background-color: #050531f6;
+}
+
+.navbar-toggler {
+  border-color: rgba(0,0,0,0.15);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}

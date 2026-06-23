@@ -1,0 +1,99 @@
+.hero-funciona {
+  background: linear-gradient(135deg, #0f2c59 0%, #1a4a8a 60%, #11b87a 100%);
+  padding: 5rem 0;
+  text-align: center;
+  color: #fff;
+}
+.hero-funciona h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+.hero-funciona p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 1rem auto 0;
+}
+.section-title {
+  font-weight: 700;
+  color: #0f2c59;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.step-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  height: 100%;
+}
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.step-number.primary {
+  background: #0f2c59;
+}
+.step-number.success {
+  background: #11b87a;
+}
+.benefit-icon {
+  font-size: 2.2rem;
+  color: #11b87a;
+  margin-bottom: 1rem;
+}
+.faq-section {
+  background: #f8fafc;
+}
+.accordion-button:not(.collapsed) {
+  background-color: #f0fdf4;
+  color: #0f2c59;
+  font-weight: 600;
+}
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: #11b87a;
+}
+.cta-section {
+  background: linear-gradient(135deg, #11b87a 0%, #0ea36c 100%);
+  padding: 4rem 0;
+  text-align: center;
+  color: #fff;
+}
+.cta-section h2 {
+  font-weight: 700;
+  font-size: 2rem;
+}
+.cta-section p {
+  opacity: 0.9;
+  max-width: 500px;
+  margin: 0.75rem auto 1.5rem;
+}
+.btn-cta {
+  background: #fff;
+  color: #11b87a;
+  font-weight: 700;
+  padding: 0.75rem 2.5rem;
+  border-radius: 99px;
+  border: none;
+  font-size: 1.05rem;
+  transition: transform 0.2s;
+}
+.btn-cta:hover {
+  transform: scale(1.05);
+  color: #0ea36c;
+}

@@ -1,0 +1,32 @@
+.hero-section {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(100, 97, 97, 0.65), rgba(0, 0, 0, 0.65)),
+    url(https://images.pexels.com/photos/36733324/pexels-photo-36733324.jpeg)
+      center / cover no-repeat;
+}
+.container > h1, h2 {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+}
+.card-categoria {
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+.card-categoria:hover {
+  border-color: #13b66a !important;
+  box-shadow: 0 0 0 2px rgba(25, 135, 84, 0.15);
+}
+.img-contenedor {
+  border-radius: 20px;
+  background: url(https://images.pexels.com/photos/6930542/pexels-photo-6930542.jpeg)
+    center / cover no-repeat;
+}
+.icon-category {
+  background-color: #1417ad;
+}
+.search-prof {
+  background-color: #1417ad;
+}

@@ -1,0 +1,38 @@
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS PARA EL DASHBOARD DEL FREELANCER (dashFreelancer.css)
+   ========================================================================== */
+
+/* Redondeado curvo idéntico al prototipo de Figma */
+.rounded-custom, .card {
+    border-radius: 1rem !important;
+}
+
+/* Color verde oficial de la marca para botones y éxitos */
+.btn-green-main {
+    background-color: #10B981 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.btn-green-main:hover {
+    background-color: #059669 !important;
+}
+
+/* Badges de estado personalizados */
+.badge-blue-new {
+    background-color: rgba(30, 58, 138, 0.1) !important;
+    color: #1E3A8A !important;
+}
+
+/* Iconos de tendencia de las tarjetas de arriba */
+.trend-icon {
+    font-size: 1.1rem;
+    color: #10B981;
+}
+
+/* Color oscuro de alta visibilidad para los textos internos de consejos */
+.text-consejo-item {
+    color: #334155 !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+}

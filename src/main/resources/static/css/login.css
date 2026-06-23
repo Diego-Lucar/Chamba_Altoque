@@ -1,0 +1,117 @@
+/* Estilos específicos para la pantalla de Login - Chamba al Toque */
+
+.login-card {
+    max-width: 460px;
+    width: 100%;
+    border-radius: 1.5rem;
+    background-color: #ffffff;
+}
+
+.icon-lock-box {
+    width: 64px;
+    height: 64px;
+    background-color: #1E3A8A; /* Color azul corporativo */
+    color: #ffffff;
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    margin: 0 auto;
+}
+
+.toggle-container {
+    background-color: #F8FAFC;
+    padding: 0.35rem;
+    border-radius: 2rem;
+    display: flex;
+}
+
+.toggle-btn {
+    flex: 1;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background: transparent;
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+    background-color: #ffffff;
+    color: #1E3A8A;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.form-control-icon {
+    position: relative;
+}
+
+.form-control-icon i.prefix-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.form-control-icon i.suffix-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.form-control-icon .form-control {
+    padding-left: 45px;
+    padding-right: 45px;
+    min-height: 54px;
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.form-control-icon .form-control:focus {
+    border-color: #10B981;
+    box-shadow: none;
+}
+
+.text-green-link {
+    color: #10B981 !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.text-green-link:hover {
+    color: #059669 !important;
+}
+
+.divider-text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin: 1.5rem 0;
+}
+
+.divider-text::before, .divider-text::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.d-grid.mb-4 {
+    margin-top: .5rem;
+}
+
+#btnIniciar {
+    background-color: #10B981;
+    border: none;
+}
+
+.divider-text:not(:empty)::before { margin-right: .5rem; }
+.divider-text:not(:empty)::after { margin-left: .5rem; }

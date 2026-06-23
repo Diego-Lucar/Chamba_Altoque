@@ -1,0 +1,75 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs y temporales
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# JVM crash logs y clases compiladas
+hs_err_pid*
+*.class
+
+# Paquetes y binarios
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+yarn-debug.log*
+yarn-error.log*
+
+# Gradle
+.gradle/
+
+# Archivos de entorno y secretos
+.env
+.env.local
+local.properties
+secrets.properties
+
+# Carpetas temporales
+/logs/
+/tmp/

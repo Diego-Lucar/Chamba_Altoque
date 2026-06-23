@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
+
+<body>
+  <!-- NAVBAR DE LAS VISTAS -->
+  <nav th:fragment="navbar" class="navbar navbar-expand-md bg-white shadow-sm">
+    <div class="container">
+      <a href="" class="navbar-brand fw-bold">
+        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 576 512">
+          <path fill="currentColor"
+            d="M7.8 207.7c-13.1-17.8-9.3-42.8 8.5-55.9l126.6-93.3C166.2 41.3 194.5 32 223.5 32H544c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32h-36.8l-44.9 36c-22.7 18.2-50.9 28-80 28H224c-17.7 0-32-14.3-32-32s14.3-32 32-32h80c8.8 0 16-7.2 16-16s-7.2-16-16-16H183.4L63.7 216.2c-17.8 13.1-42.8 9.3-55.9-8.5M382.4 160h.9zm185.8 144.3c13.1 17.8 9.3 42.8-8.5 55.9l-126.6 93.3c-23.4 17.2-51.6 26.5-80.7 26.5H32c-17.7 0-32-14.3-32-32v-64c0-17.7 14.3-32 32-32h36.8l44.9-36c22.7-18.2 50.9-28 80-28H352c17.7 0 32 14.3 32 32s-14.3 32-32 32h-80c-8.8 0-16 7.2-16 16s7.2 16 16 16h120.6l119.7-88.2c17.8-13.1 42.8-9.3 55.9 8.5M193.6 352h-.9z" />
+        </svg>
+        <span class="fw-bold">Chamba Altoque</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-md-0 gap-3">
+          <li class="nav-item">
+            <a class="nav-link fw-medium" aria-current="page" href="#" th:href="@{/}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium" href="#" th:href="@{/servicios}">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium" href="#" th:href="@{/como-funciona}">Como Funciona</a>
+          </li>
+        </ul>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle d-flex align-items-center gap-1" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-person-circle fs-5"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-sm-end dropdown-menu-start">
+            <li>
+              <a class="dropdown-item" href="#" th:href="@{/login}">Iniciar sesion</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" th:href="@{/registro}">Registrarse</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" th:href="@{/dashboard-usuario}">Mi Dashboard</a>
+            </li>
+            <li><a class="dropdown-item" href="#" th:href="@{/perfil}">Mi perfil</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- FOOTER DE LAS VISTAS -->
+  <footer th:fragment="footer" class="text-white pt-5 pb-3 mt-5 bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold">
+            <i class="bi bi-people me-2"></i>Chamba Altoque
+          </h5>
+          <p class="text-white-50 small">
+            La plataforma que conecta a profesionales verificados con personas
+            que buscan servicios confiables en Lima Metropolitana.
+          </p>
+          <div class="d-flex gap-3 fs-5">
+            <a href="#" class="text-white-50"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white-50"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-white-50"><i class="bi bi-whatsapp"></i></a>
+            <a href="#" class="text-white-50"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h6 class="fw-bold">Enlaces</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-1">
+              <a href="#" class="text-white-50 text-decoration-none">Inicio</a>
+            </li>
+            <li class="mb-1">
+              <a href="#" class="text-white-50 text-decoration-none">Servicios</a>
+            </li>
+            <li class="mb-1">
+              <a href="#" class="text-white-50 text-decoration-none">Como Funciona</a>
+            </li>
+            <li class="mb-1">
+              <a href="#" class="text-white-50 text-decoration-none">Registrarse</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h6 class="fw-bold">Categorias</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-1">
+              <a href="#" class="text-white-50 text-decoration-none">Tecnicos</a>
+            </li>
+            <li class="mb-1">
+              <a href="#" class="text-white-50 text-decoration-none">Salud</a>
+            </li>
+            <li class="mb-1">
+              <a href="#" class="text-white-50 text-decoration-none">Educacion</a>
+            </li>
+            <li class="mb-1">
+              <a href="#" class="text-white-50 text-decoration-none">Hogar</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h6 class="fw-bold">Contacto</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-1 text-white-50">
+              <i class="bi bi-geo-alt me-1"></i>Lima, Peru
+            </li>
+            <li class="mb-1 text-white-50">
+              <i class="bi bi-envelope me-1"></i>info@chambaaltoque.pe
+            </li>
+            <li class="mb-1 text-white-50">
+              <i class="bi bi-telephone me-1"></i>+51 999 888 777
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-white-50" />
+      <div class="text-center small text-white-50">
+        &copy; 2026 Chamba Altoque. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

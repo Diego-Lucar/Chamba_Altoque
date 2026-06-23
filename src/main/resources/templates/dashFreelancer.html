@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Proveedor - Chamba al Toque</title>
+    
+    <!-- Librerías de diseño heredadas -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    
+    <!-- Hojas de estilo globales y específicas -->
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css" />
+    <link rel="stylesheet" th:href="@{/css/dashFreelancer.css}" href="/css/dashFreelancer.css" />
+</head>
+<body style="background-color: #f3f1f196;">
+
+    <!-- CABECERA MODULAR REUTILIZADA -->
+    <header th:replace="~{layouts :: navbar}"></header>
+
+    <main class="container my-5" style="max-width: 1140px;">
+        
+        <!-- CABECERA LIMPIA (IGUAL AL PROTOTIPO FIGMA) -->
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <div>
+                <h1 class="fw-bold h2 m-0 text-dark">Dashboard de Proveedor</h1>
+                <p class="text-muted m-0 small">Bienvenido de vuelta, Carlos Mendoza</p>
+            </div>
+            <button type="button" class="btn btn-white bg-white border border-secondary border-opacity-25 text-secondary rounded-3 px-3 py-2 d-flex align-items-center gap-2 shadow-sm small">
+                <i class="bi bi-gear"></i> Configuración
+            </button>
+        </div>
+
+        <!-- FILA SUPERIOR: 4 CARDS DE ESTADÍSTICAS COMPLETAS -->
+        <div class="row g-3 mb-4">
+            <!-- Card 1: Vistas del perfil -->
+            <div class="col-6 col-md-3">
+                <div class="card border-0 shadow-sm p-3 bg-white h-100 d-flex flex-column justify-content-between">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <i class="bi bi-eye text-primary fs-5"></i>
+                        <i class="bi bi-arrow-up-right trend-icon"></i>
+                    </div>
+                    <div>
+                        <h3 class="fw-bold m-0 text-dark">342</h3>
+                        <small class="text-muted card-text">Vistas del perfil</small>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2: Solicitudes totales -->
+            <div class="col-6 col-md-3">
+                <div class="card border-0 shadow-sm p-3 bg-white h-100 d-flex flex-column justify-content-between">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <i class="bi bi-chat-left-text text-primary fs-5"></i>
+                        <i class="bi bi-arrow-up-right trend-icon"></i>
+                    </div>
+                    <div>
+                        <h3 class="fw-bold m-0 text-dark">45</h3>
+                        <small class="text-muted card-text">Solicitudes totales</small>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3: Servicios completados -->
+            <div class="col-6 col-md-3">
+                <div class="card border-0 shadow-sm p-3 bg-white h-100 d-flex flex-column justify-content-between">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <i class="bi bi-calendar-check text-primary fs-5"></i>
+                        <i class="bi bi-arrow-up-right trend-icon"></i>
+                    </div>
+                    <div>
+                        <h3 class="fw-bold m-0 text-dark">38</h3>
+                        <small class="text-muted card-text">Servicios completados</small>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4: Reseñas -->
+            <div class="col-6 col-md-3">
+                <div class="card border-0 shadow-sm p-3 bg-white h-100 d-flex flex-column justify-content-between">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <i class="bi bi-star text-warning fs-5"></i>
+                        <i class="bi bi-bookmark-star text-success fs-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="fw-bold m-0 text-dark">4.9</h3>
+                        <small class="text-muted card-text">127 reseñas</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN PRINCIPAL EN DOS COLUMNAS -->
+        <div class="row g-4">
+            
+            <!-- COLUMNA IZQUIERDA: SOLICITUDES Y SERVICIOS -->
+            <div class="col-lg-8">
+                
+                <!-- SECCIÓN: SOLICITUDES RECIBIDAS (CON UNA SOLA CARD PARA EL BACKEND) -->
+                <div class="mb-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3 px-2">
+                        <h5 class="fw-bold text-dark m-0"><i class="bi bi-chat-left text-secondary me-2"></i>Solicitudes Recibidas</h5>
+                        <span class="text-muted small">3 activas</span>
+                    </div>
+
+                    <!-- CARD ÚNICA TEMPLATE -->
+                    <div class="card border-0 shadow-sm p-4 bg-white mb-3">
+                        <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-2">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="fw-bold d-flex align-items-center justify-content-center text-success" 
+                                     style="width: 44px; height: 44px; border-radius: 0.75rem; background-color: rgba(16, 185, 129, 0.1);">
+                                    SM
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold m-0 text-dark">Sandra Morales</h6>
+                                    <small class="text-muted">Instalación eléctrica</small>
+                                    <div class="text-muted" style="font-size: 0.8rem;"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Miraflores</div>
+                                </div>
+                            </div>
+                            <span class="badge badge-blue-new px-3 py-1.5 small rounded-pill">Nueva</span>
+                        </div>
+                        <p class="text-secondary small my-3">Necesito instalar luces LED en mi sala de 20m²</p>
+                        <div class="d-flex align-items-center justify-content-between border-top pt-3 flex-wrap gap-2">
+                            <span class="text-muted small">6/5/2026</span>
+                            <div class="d-flex gap-2">
+                                <button type="button" class="btn btn-sm btn-green-main rounded-pill px-4 fw-semibold">Aceptar</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 fw-semibold">Rechazar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN: MIS SERVICIOS -->
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-3 px-2">
+                        <h5 class="fw-bold text-dark m-0">Mis Servicios</h5>
+                        <button type="button" class="btn btn-green-main btn-sm rounded-pill px-3 fw-semibold d-flex align-items-center gap-1">
+                            <i class="bi bi-plus-circle"></i> Agregar servicio
+                        </button>
+                    </div>
+
+                    <!-- Card Informativa de Servicio Activo -->
+                    <div class="card border-0 shadow-sm p-4 bg-white">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                            <div>
+                                <h6 class="fw-bold text-dark m-0">Electricista Domiciliario</h6>
+                                <small class="text-muted">Instalaciones, tableros, mantenimiento preventivo y cortocorticuitos.</small>
+                            </div>
+                            <span class="badge rounded-pill px-3 py-1.5 small" style="background-color: rgba(16, 185, 129, 0.1); color: #10B981; font-weight: 600;">Activo</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COLUMNA DERECHA: SIDEBAR -->
+            <div class="col-lg-4">
+                
+                <!-- COMPONENTE 1: RESUMEN DE PERFIL FREELANCER -->
+                <div class="card border-0 shadow-sm p-4 text-center bg-white mb-4">
+                    <div class="rounded-circle text-white fw-bold d-flex align-items-center justify-content-center mx-auto mb-3 shadow-sm" 
+                         style="width: 80px; height: 80px; font-size: 1.75rem; background-color: #059669;">
+                        CM
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Carlos Mendoza</h5>
+                    <p class="text-muted small mb-2">Electricista Certificado</p>
+                    <div class="text-warning small mb-4">
+                        <i class="bi bi-star-fill"></i> <span class="fw-bold text-dark">4.9</span> <span class="text-muted">(127)</span>
+                    </div>
+                    <a th:href="@{/perfil}" class="btn btn-outline-secondary w-100 rounded-pill fw-semibold small py-2">
+                        Editar perfil
+                    </a>
+                </div>
+
+                <!-- COMPONENTE 2: CONSEJOS (TEXTO TOTALMENTE LEGIBLE) -->
+                <div class="card border-0 shadow-sm p-4 bg-white">
+                    <h6 class="fw-bold text-dark mb-3 border-bottom pb-2">
+                        <i class="bi bi-lightbulb text-warning me-1"></i> Consejos
+                    </h6>
+                    <ul class="list-unstyled m-0 d-flex flex-column gap-3 small">
+                        <li class="d-flex align-items-start gap-2 text-consejo-item">
+                            <i class="bi bi-check2 text-success fw-bold fs-5 lh-1"></i> Responde a las solicitudes en menos de 24 horas
+                        </li>
+                        <li class="d-flex align-items-start gap-2 text-consejo-item">
+                            <i class="bi bi-check2 text-success fw-bold fs-5 lh-1"></i> Mantén tu perfil actualizado con certificaciones
+                        </li>
+                        <li class="d-flex align-items-start gap-2 text-consejo-item">
+                            <i class="bi bi-check2 text-success fw-bold fs-5 lh-1"></i> Sube fotos de tus trabajos completados
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- PIE DE PÁGINA MODULAR -->
+    <footer th:replace="~{layouts :: footer}"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

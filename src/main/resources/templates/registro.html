@@ -1,0 +1,388 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" th:href="@{/css/registro.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <nav th:replace="layouts :: navbar"></nav>
+
+    <main
+      class="d-flex align-items-center justify-content-center py-5"
+      style="min-height: calc(100vh - 160px)"
+    >
+      <div class="card-step p-4 p-md-5 mx-3" id="stepSelector">
+        <a th:href="@{/}" class="text-decoration-none text-secondary"
+          ><i class="bi bi-arrow-left-short"></i> Regresar al inicio</a
+        >
+        <h2 class="fw-semibold mb-1">Crear cuenta</h2>
+        <p class="text-muted mb-4">Selecciona el tipo de registro</p>
+
+        <div class="d-flex gap-3 mb-4">
+          <label
+            class="option-card flex-fill"
+            onclick="seleccionarTipo('usuario')"
+            id="cardUsuario"
+          >
+            <input type="radio" name="tipo" value="usuario" />
+            <div class="fs-1 mb-2"><i class="bi bi-person fs-1 icon"></i></div>
+            <h5 class="fw-semibold mb-1 fw-bold">Usuario</h5>
+            <p class="text-muted small mb-0">Busco contratar servicios</p>
+          </label>
+          <label
+            class="option-card flex-fill"
+            onclick="seleccionarTipo('freelancer')"
+            id="cardFreelancer"
+          >
+            <input type="radio" name="tipo" value="freelancer" />
+            <div class="fs-1 mb-2">
+              <i class="bi bi-briefcase fs-1 icon"></i>
+            </div>
+            <h5 class="fw-semibold mb-1 fw-bold">Freelancer</h5>
+            <p class="text-muted small mb-0">Ofrezco mis servicios</p>
+          </label>
+        </div>
+
+        <button
+          class="btn w-100 py-2 fw-semibold main-button"
+          disabled
+          id="btnContinue"
+          onclick="continuar()"
+        >
+          Continuar
+        </button>
+      </div>
+
+      <div
+        class="card-step p-4 p-md-5 mx-3"
+        id="stepForm"
+        style="display: none"
+      >
+        <div class="d-flex align-items-center mb-3">
+          <button class="btn btn-soft btn-sm me-3" onclick="volver()">
+            ← Atrás
+          </button>
+          <h2 class="fw-bold mb-0" id="formTitle">Registro</h2>
+        </div>
+        <div class="form-scroll">
+          <!--? REGISTRAR USUARIO -->
+          <form
+            id="formUsuario"
+            th:action="@{/registro/guardarUsuario}"
+            th:object="${usuario}"
+            method="post"
+            style="display: none"
+            novalidate
+          >
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Nombre completo</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-person"></i
+                ></span>
+                <input
+                  type="text"
+                  class="form-control rounded-pill"
+                  th:field="*{nombre}"
+                  placeholder="Tu nombre completo"
+                />
+              </div>
+              <div th:errors="*{nombre}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Correo electrónico</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('correo')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-envelope"></i
+                ></span>
+                <input
+                  type="email"
+                  class="form-control rounded-pill"
+                  th:field="*{correo}"
+                  placeholder="ejemplo@gmail.com"
+                />
+              </div>
+              <div th:errors="*{correo}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Teléfono</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('telefono')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-telephone"></i
+                ></span>
+                <input
+                  type="tel"
+                  class="form-control rounded-pill"
+                  th:field="*{telefono}"
+                  placeholder="999 999 999"
+                />
+              </div>
+              <div th:errors="*{telefono}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Distrito</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('distrito')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-geo-alt"></i
+                ></span>
+                <select
+                  class="form-select rounded-pill"
+                  th:field="*{distrito}"
+                >
+                  <option value="">Selecciona tu distrito</option>
+                  <option
+                    th:each="distrito : ${distritos}"
+                    th:value="${distrito.id}"
+                    th:text="${distrito.nombre}"
+                  ></option>
+                </select>
+              </div>
+              <div th:errors="*{distrito}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Contraseña</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-lock"></i
+                ></span>
+                <input
+                  type="password"
+                  class="form-control rounded-pill"
+                  th:field="*{password}"
+                  placeholder="••••••••"
+                />
+              </div>
+              <div th:errors="*{password}" class="invalid-feedback"></div>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100 py-2 fw-semibold"
+              style="background: #4a7ba8; border: none"
+            >
+              Registrarse
+            </button>
+          </form>
+          <!--? REGISTRAR FREELANCER -->
+          <form
+            id="formFreelancer"
+            th:action="@{/registro/guardarFreelancer}"
+            th:object="${freelancer}"
+            method="post"
+            enctype="multipart/form-data"
+            style="display: none"
+            novalidate
+          >
+            <div class="mb-3">
+              <label class="form-label fw-medium">Nombre completo</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-person"></i
+                ></span>
+                <input
+                  type="text"
+                  class="form-control rounded-pill"
+                  th:field="*{nombre}"
+                  placeholder="Tu nombre completo"
+                />
+              </div>
+              <div th:errors="*{nombre}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Correo electrónico</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('correo')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-envelope"></i
+                ></span>
+                <input
+                  type="email"
+                  class="form-control rounded-pill"
+                  th:field="*{correo}"
+                  placeholder="ejemplo@gmail.com"
+                />
+              </div>
+              <div th:errors="*{correo}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Teléfono</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('telefono')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-telephone"></i
+                ></span>
+                <input
+                  type="tel"
+                  class="form-control rounded-pill"
+                  th:field="*{telefono}"
+                  placeholder="999 999 999"
+                />
+              </div>
+              <div th:errors="*{telefono}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Distrito</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('distrito')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-geo-alt"></i
+                ></span>
+                <select
+                  class="form-select rounded-pill"
+                  th:field="*{distrito}"
+                >
+                  <option value="">Selecciona tu distrito</option>
+                  <option
+                    th:each="distrito : ${distritos}"
+                    th:value="${distrito.id}"
+                    th:text="${distrito.nombre}"
+                  ></option>
+                </select>
+              </div>
+              <div th:errors="*{distrito}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Contraseña</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-lock"></i
+                ></span>
+                <input
+                  type="password"
+                  class="form-control rounded-pill"
+                  th:field="*{password}"
+                  placeholder="••••••••"
+                />
+              </div>
+              <div th:errors="*{password}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Años de experiencia</label>
+              <div class="input-group gap-2" th:classappend="${#fields.hasErrors('experiencia')} ? 'is-invalid' : ''">
+                <span class="input-group-text rounded-circle"
+                  ><i class="bi bi-clock-history"></i
+                ></span>
+                <input
+                  type="number"
+                  class="form-control rounded-pill"
+                  th:field="*{experiencia}"
+                  placeholder="0"
+                />
+              </div>
+              <div th:errors="*{experiencia}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Categorías de servicio</label>
+              <div id="categoriaCards" class="d-flex flex-wrap gap-2" th:classappend="${#fields.hasErrors('categorias')} ? 'is-invalid' : ''">
+                <div
+                  th:each="servicio : ${servicios}"
+                  class="cat-card"
+                  th:data-id="${servicio.id}"
+                  onclick="toggleCategoria(this)"
+                >
+                  <div class="cat-card-body">
+                    <h6
+                      class="cat-card-title"
+                      th:text="${servicio.nombre}"
+                    ></h6>
+                    <small
+                      class="cat-card-desc"
+                      th:text="${servicio.descripcion}"
+                    ></small>
+                  </div>
+                  <input
+                    type="checkbox"
+                    th:field="*{categorias}"
+                    th:value="${servicio.id}"
+                    class="cat-checkbox"
+                  />
+                </div>
+              </div>
+              <div th:errors="*{categorias}" class="invalid-feedback"></div>
+            </div>
+            <!--? EN EL CASO DE FOTO DE PERFIL SE USA EN 'NAME' EL NOMBRE 'fotoPerfilFile' PARA QUE EL CONTROLADOR PUEDA RECONOCERLO COMO UN ARCHIVO Y PROCESARLO CORRECTAMENTE. SI SE USA OTRO NOMBRE, EL CONTROLADOR NO PODRÁ OBTENER EL ARCHIVO Y SE PRODUCIRÁ UN ERROR. -->
+            <div class="mb-3">
+              <label class="form-label fw-medium">Foto de perfil</label>
+              <div
+                class="upload-area"
+                onclick="document.getElementById('fotoInput').click()"
+              >
+                <div class="upload-area-content">
+                  <i class="bi bi-camera fs-1"></i>
+                  <span class="upload-area-text"
+                    >Haz click para cargar imagen</span
+                  >
+                  <span class="upload-area-file d-none"></span>
+                </div>
+                <input
+                  type="file"
+                  id="fotoInput"
+                  name="fotoPerfilFile"
+                  accept="image/*"
+                  class="d-none"
+                  onchange="mostrarNombreArchivo(this)"
+                  required
+                />
+              </div>
+            </div>
+            <!--? EN EL CASO DE LOS DOCUMENTOS SE USA 'NAME' COMO 'documentosFiles' Y SE AGREGA EL ATRIBUTO 'MULTIPLE' PARA QUE EL CONTROLADOR PUEDA RECONOCERLO COMO UNA LISTA DE ARCHIVOS Y PROCESARLOS CORRECTAMENTE. SI SE USA OTRO NOMBRE O NO SE AGREGA EL ATRIBUTO 'MULTIPLE', EL CONTROLADOR NO PODRÁ OBTENER LOS ARCHIVOS Y SE PRODUCIRÁ UN ERROR. -->
+            <div class="mb-3">
+              <label class="form-label fw-medium"
+                >Documentos (CV, certificados, etc.)</label
+              >
+              <div
+                class="upload-area"
+                onclick="document.getElementById('docsInput').click()"
+              >
+                <div class="upload-area-content">
+                  <i class="bi bi-file-earmark-arrow-up fs-1"></i>
+                  <span class="upload-area-text"
+                    >Haz click para cargar documentos</span
+                  >
+                  <span class="upload-area-file d-none"></span>
+                </div>
+                <input
+                  type="file"
+                  id="docsInput"
+                  name="documentosFiles"
+                  multiple
+                  class="d-none"
+                  onchange="mostrarNombreArchivos(this)"
+                  required
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100 py-2 fw-semibold"
+              style="background: #4a7ba8; border: none"
+            >
+              Guardar
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer th:replace="layouts :: footer"></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script th:inline="javascript">
+      var tipoRegistro = /*[[${tipoRegistro}]]*/ "";
+    </script>
+    <script th:src="@{/js/registro.js}"></script>
+  </body>
+</html>
