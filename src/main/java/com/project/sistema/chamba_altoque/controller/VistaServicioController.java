@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.sistema.chamba_altoque.entities.Freelancer;
 import com.project.sistema.chamba_altoque.repository.DistritoRepository;
@@ -27,11 +28,20 @@ public class VistaServicioController {
         this.freelancerService = freelancerService;
     }
 
+    // SE CAMBIO 
     @GetMapping
-    public String vistaServicio(Model model) {
+    public String vistaServicio(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
         model.addAttribute("listarServicios", servicioRepository.findAll());
         model.addAttribute("listarDistritos", distritoRepository.findAll());
-        model.addAttribute("listarFreelancers", freelancerService.listarFreelancers());
+        
+        // es para verificar si el usuario escribió algo en la barra de búsqueda
+        if (keyword != null && !keyword.trim().isEmpty()) {
+            model.addAttribute("listarFreelancers", freelancerService.buscarFreelancers(keyword));
+            model.addAttribute("keyword", keyword); 
+        } else {
+            // Si no buscó nada, se mantedrpra el comportamiento original
+            model.addAttribute("listarFreelancers", freelancerService.listarFreelancers());
+        }
         return "servicio";
     }
 

@@ -11,246 +11,315 @@
   <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 
-<body>
-  <!-- NAVBAR -->
-  <div th:replace="layouts :: navbar"></div>
-  <!-- HERO SECTION -->
-  <section class="hero-section d-flex align-items-center justify-content-center">
-    <div class="container text-start text-white">
-      <h1 class="fw-bold display-4 mb-3">
-        Encuentra servicios confiables <br />
-        en Lima Metropolitana
-      </h1>
-      <h2 class="fw-light mb-4">
-        Profesionales verificados, reseñas reales, comparación fácil
-      </h2>
-      <div class="row justify-content-start">
-        <div class="col-md-6">
-          <div class="input-group input-group-lg mt-4">
-            <input type="text" class="form-control" placeholder="¿Qué servicio necesitas?" aria-label="Buscar" />
-            <button class="btn btn-success" type="button">
-              <i class="bi bi-search"></i>
-            </button>
+  <body>
+    <!-- NAVBAR -->
+    <div th:replace="layouts :: navbar"></div>
+    <!-- HERO SECTION -->
+    <section
+      class="hero-section d-flex align-items-center justify-content-center"
+    >
+      <div class="container text-start text-white">
+        <h1 class="fw-bold display-4 mb-3">
+          Encuentra servicios confiables <br />
+          en Lima Metropolitana
+        </h1>
+        <h2 class="fw-light mb-4">
+          Profesionales verificados, reseñas reales, comparación fácil
+        </h2>
+        <div class="row justify-content-start">
+          <div class="col-md-6">
+            <div class="input-group input-group-lg mt-4">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="¿Qué servicio necesitas?"
+                aria-label="Buscar"
+              />
+              <button class="btn btn-success" type="button">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CARDS ESTADISTICAS -->
+    <div class="container-fluid bg-body">
+      <div class="row">
+        <div
+          class="col-md-3 col-6 d-flex flex-column align-items-center gap-0 py-4"
+        >
+          <i class="bi bi-people text-primary fs-1"></i>
+          <div class="d-flex flex-column text-center">
+            <span class="fw-bold fs-4">500+</span>
+            <span>Proveedores</span>
+          </div>
+        </div>
+        <div
+          class="col-md-3 col-6 d-flex flex-column align-items-center gap-0 py-4"
+        >
+          <i class="bi bi-star text-success fs-1"></i>
+          <div class="d-flex flex-column text-center">
+            <span class="fw-bold fs-4">4.8/5</span>
+            <span>Calificación promedio</span>
+          </div>
+        </div>
+        <div
+          class="col-md-3 col-6 d-flex flex-column align-items-center gap-0 py-4"
+        >
+          <i class="bi bi-patch-check text-primary fs-1"></i>
+          <div class="d-flex flex-column text-center">
+            <span class="fw-bold fs-4">100%</span>
+            <span>Verificados</span>
+          </div>
+        </div>
+        <div
+          class="col-md-3 col-6 d-flex flex-column align-items-center gap-0 py-4"
+        >
+          <i class="bi bi-graph-up-arrow fs-1 text-success"></i>
+          <div class="d-flex flex-column text-center">
+            <span class="fw-bold fs-4">2,500+</span>
+            <span>Servicios Realizados</span>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- CARDS ESTADISTICAS -->
-  <div class="container-fluid bg-body">
-    <div class="row">
-      <div class="col-md-3 col-6 d-flex flex-column align-items-center gap-0 py-4">
-        <i class="bi bi-people text-primary fs-1"></i>
-        <div class="d-flex flex-column text-center">
-          <span class="fw-bold fs-4">500+</span>
-          <span>Proveedores</span>
-        </div>
+    <!-- Conectamos con profesionales verificados -->
+    <div
+      class="container-fluid d-flex flex-column-reverse flex-md-row justify-content-center mt-5 gap-3 p-5"
+    >
+      <div
+        class="col-md-6 col-12 d-flex align-items-center justify-content-center"
+      >
+        <div class="img-contenedor w-75 h-100"></div>
       </div>
-      <div class="col-md-3 col-6 d-flex flex-column align-items-center gap-0 py-4">
-        <i class="bi bi-star text-success fs-1"></i>
-        <div class="d-flex flex-column text-center">
-          <span class="fw-bold fs-4">4.8/5</span>
-          <span>Calificación promedio</span>
+      <div
+        class="col-md-6 col-12 d-flex flex-column justify-content-center gap-md-4 gap-2"
+      >
+        <h1 class="fw-bold">Conectamos con profesionales <br />verificados</h1>
+        <div class="d-flex flex-column mt-md-3 mt-1">
+          <span class="fw-medium fs-4"
+            ><i class="bi bi-check-circle text-success"></i> Verificacion
+            completa</span
+          >
+          <span
+            >Todos los proveedores pasan por un proceso de verificación de
+            identidad y certificaciones</span
+          >
         </div>
-      </div>
-      <div class="col-md-3 col-6 d-flex flex-column align-items-center gap-0 py-4">
-        <i class="bi bi-patch-check text-primary fs-1"></i>
-        <div class="d-flex flex-column text-center">
-          <span class="fw-bold fs-4">100%</span>
-          <span>Verificados</span>
+        <div class="d-flex flex-column mt-3">
+          <span class="fw-medium fs-4"
+            ><i class="bi bi-check-circle text-success"></i> Verificacion
+            completa</span
+          >
+          <span
+            >Todos los proveedores pasan por un proceso de verificación de
+            identidad y certificaciones</span
+          >
         </div>
-      </div>
-      <div class="col-md-3 col-6 d-flex flex-column align-items-center gap-0 py-4">
-        <i class="bi bi-graph-up-arrow fs-1 text-success"></i>
-        <div class="d-flex flex-column text-center">
-          <span class="fw-bold fs-4">2,500+</span>
-          <span>Servicios Realizados</span>
+        <div class="d-flex flex-column mt-3">
+          <span class="fw-medium fs-4"
+            ><i class="bi bi-check-circle text-success"></i> Verificacion
+            completa</span
+          >
+          <span
+            >Todos los proveedores pasan por un proceso de verificación de
+            identidad y certificaciones</span
+          >
         </div>
+        <a href="" class="text-decoration-none text-primary mt-3 fw-bold"
+          >Ver como funciona <i class="bi bi-chevron-right"></i
+        ></a>
       </div>
     </div>
-  </div>
-  <!-- Conectamos con profesionales verificados -->
-  <div class="container-fluid d-flex flex-column-reverse flex-md-row justify-content-center mt-5 gap-3 p-5">
-    <div class="col-md-6 col-12 d-flex align-items-center justify-content-center">
-      <div class="img-contenedor w-75 h-100"></div>
-    </div>
-    <div class="col-md-6 col-12 d-flex flex-column justify-content-center gap-md-4 gap-2">
-      <h1 class="fw-bold">Conectamos con profesionales <br />verificados</h1>
-      <div class="d-flex flex-column mt-md-3 mt-1">
-        <span class="fw-medium fs-4"><i class="bi bi-check-circle text-success"></i> Verificacion
-          completa</span>
-        <span>Todos los proveedores pasan por un proceso de verificación de
-          identidad y certificaciones</span>
+    <!-- EXPLORA NUESTRAS CATEGORIAS -->
+    <div class="container-fluid bg-body p-5">
+      <div class="text-center mt-5">
+        <h1 class="fw-bold">Explora nuestras categorías</h1>
+        <p class="text-secondary fs-5">
+          Encuentra el profesional perfecto para tu necesidad
+        </p>
       </div>
-      <div class="d-flex flex-column mt-3">
-        <span class="fw-medium fs-4"><i class="bi bi-check-circle text-success"></i> Verificacion
-          completa</span>
-        <span>Todos los proveedores pasan por un proceso de verificación de
-          identidad y certificaciones</span>
+      <div class="row d-flex gap-4 justify-content-center mt-5">
+        <a
+          href="#"
+          class="col-md-2 col-12 text-center p-5 border rounded-4 shadow-sm text-decoration-none text-dark card-categoria"
+        >
+          <i class="bi bi-gear p-4 text-white rounded-4 fs-5 icon-category"></i>
+          <div class="d-flex flex-column gap-2 mt-4">
+            <span class="fw-bold fs-5">Tecnicos</span>
+            <span class="text-secondary"
+              >Electrisista, plomeros, técnicos en computadoras y más</span
+            >
+            <span class="text-success">150 proveedores</span>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="col-md-2 col-12 text-center p-5 border rounded-4 shadow-sm text-decoration-none text-dark card-categoria"
+        >
+          <i
+            class="bi bi-heart p-4 text-white rounded-4 fs-5 icon-category"
+          ></i>
+          <div class="d-flex flex-column gap-2 mt-4">
+            <span class="fw-bold fs-5">Salud</span>
+            <span class="text-secondary"
+              >Enfermeros, nutricionistas, psicólogos y profesionales de
+              salud</span
+            >
+            <span class="text-success">85 proveedores</span>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="col-md-2 col-12 text-center p-5 border rounded-4 shadow-sm text-decoration-none text-dark card-categoria"
+        >
+          <i class="bi bi-gear p-4 text-white rounded-4 fs-5 icon-category"></i>
+          <div class="d-flex flex-column gap-2 mt-4">
+            <span class="fw-bold fs-5">Educacion</span>
+            <span class="text-secondary"
+              >Profesores particulares, tutores academicos y profesionales de
+              salud</span
+            >
+            <span class="text-success">120 proveedores</span>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="col-md-2 col-12 text-center p-5 border rounded-4 shadow-sm text-decoration-none text-dark card-categoria"
+        >
+          <i class="bi bi-gear p-4 text-white rounded-4 fs-5 icon-category"></i>
+          <div class="d-flex flex-column gap-2 mt-4">
+            <span class="fw-bold fs-5">Asesorias</span>
+            <span class="text-secondary"
+              >Consultas legales, contables, financieros y empresariales</span
+            >
+            <span class="text-success">95 proveedores</span>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="col-md-2 col-12 text-center p-5 border rounded-4 shadow-sm text-decoration-none text-dark card-categoria"
+        >
+          <i class="bi bi-gear p-4 text-white rounded-4 fs-5 icon-category"></i>
+          <div class="d-flex flex-column gap-2 mt-4">
+            <span class="fw-bold fs-5">Hogar</span>
+            <span class="text-secondary"
+              >Limpieza, jardinería, reparaciones y mantenimiento del
+              hogar</span
+            >
+            <span class="text-success">110 proveedores</span>
+          </div>
+        </a>
       </div>
-      <div class="d-flex flex-column mt-3">
-        <span class="fw-medium fs-4"><i class="bi bi-check-circle text-success"></i> Verificacion
-          completa</span>
-        <span>Todos los proveedores pasan por un proceso de verificación de
-          identidad y certificaciones</span>
+    </div>
+    <!-- Lo que dicen nuestros clientes -->
+    <div class="container-fluid mt-5 p-4 mb-5">
+      <div class="text-center d-flex flex-column">
+        <h1 class="fw-bold">Lo que dicen nuestros clientes</h1>
+        <p class="fs-5 text-secondary">
+          Testimonios reales de personas satisfechas
+        </p>
       </div>
-      <a th:href="@{/como-funciona}" class="text-decoration-none text-primary mt-3 fw-bold">Ver como funciona <i
-          class="bi bi-chevron-right"></i></a>
-    </div>
-  </div>
-  <!-- EXPLORA NUESTRAS CATEGORIAS -->
-  <div class="container-fluid bg-body p-5">
-    <div class="text-center mt-5">
-      <h1 class="fw-bold">Explora nuestras categorías</h1>
-      <p class="text-secondary fs-5">
-        Encuentra el profesional perfecto para tu necesidad
-      </p>
-    </div>
-    <div class="row d-flex gap-4 justify-content-center mt-5">
-      <a href="#"
-        class="col-md-2 col-12 text-center p-5 border rounded-4 shadow-sm text-decoration-none text-dark card-categoria">
-        <i class="bi bi-gear p-4 text-white rounded-4 fs-5 icon-category"></i>
-        <div class="d-flex flex-column gap-2 mt-4">
-          <span class="fw-bold fs-5">Tecnicos</span>
-          <span class="text-secondary">Electrisista, plomeros, técnicos en computadoras y más</span>
-          <span class="text-success">150 proveedores</span>
-        </div>
-      </a>
-      <a href="#"
-        class="col-md-2 col-12 text-center p-5 border rounded-4 shadow-sm text-decoration-none text-dark card-categoria">
-        <i class="bi bi-heart p-4 text-white rounded-4 fs-5 icon-category"></i>
-        <div class="d-flex flex-column gap-2 mt-4">
-          <span class="fw-bold fs-5">Salud</span>
-          <span class="text-secondary">Enfermeros, nutricionistas, psicólogos y profesionales de
-            salud</span>
-          <span class="text-success">85 proveedores</span>
-        </div>
-      </a>
-      <a href="#"
-        class="col-md-2 col-12 text-center p-5 border rounded-4 shadow-sm text-decoration-none text-dark card-categoria">
-        <i class="bi bi-gear p-4 text-white rounded-4 fs-5 icon-category"></i>
-        <div class="d-flex flex-column gap-2 mt-4">
-          <span class="fw-bold fs-5">Educacion</span>
-          <span class="text-secondary">Profesores particulares, tutores academicos y profesionales de
-            salud</span>
-          <span class="text-success">120 proveedores</span>
-        </div>
-      </a>
-      <a href="#"
-        class="col-md-2 col-12 text-center p-5 border rounded-4 shadow-sm text-decoration-none text-dark card-categoria">
-        <i class="bi bi-gear p-4 text-white rounded-4 fs-5 icon-category"></i>
-        <div class="d-flex flex-column gap-2 mt-4">
-          <span class="fw-bold fs-5">Asesorias</span>
-          <span class="text-secondary">Consultas legales, contables, financieros y empresariales</span>
-          <span class="text-success">95 proveedores</span>
-        </div>
-      </a>
-      <a href="#"
-        class="col-md-2 col-12 text-center p-5 border rounded-4 shadow-sm text-decoration-none text-dark card-categoria">
-        <i class="bi bi-gear p-4 text-white rounded-4 fs-5 icon-category"></i>
-        <div class="d-flex flex-column gap-2 mt-4">
-          <span class="fw-bold fs-5">Hogar</span>
-          <span class="text-secondary">Limpieza, jardinería, reparaciones y mantenimiento del
-            hogar</span>
-          <span class="text-success">110 proveedores</span>
-        </div>
-      </a>
-    </div>
-  </div>
-  <!-- Lo que dicen nuestros clientes -->
-  <div class="container-fluid mt-5 p-4 mb-5">
-    <div class="text-center d-flex flex-column">
-      <h1 class="fw-bold">Lo que dicen nuestros clientes</h1>
-      <p class="fs-5 text-secondary">
-        Testimonios reales de personas satisfechas
-      </p>
-    </div>
-    <div class="row d-flex gap-5 justify-content-center mt-5">
-      <div class="col-md-3 col-12 bg-white rounded-4 shadow p-4">
-        <div class="d-flex gap-2">
-          <span class="bg-primary rounded-circle p-3 text-white fw-bold">SM</span>
-          <div class="d-flex flex-column">
-            <span class="fw-bold">Sandra Morales</span>
-            <span>Electricista</span>
+      <div class="row d-flex gap-5 justify-content-center mt-5">
+        <div class="col-md-3 col-12 bg-white rounded-4 shadow p-4">
+          <div class="d-flex gap-2">
+            <span class="bg-primary rounded-circle p-3 text-white fw-bold"
+              >SM</span
+            >
+            <div class="d-flex flex-column">
+              <span class="fw-bold">Sandra Morales</span>
+              <span>Electricista</span>
+            </div>
+          </div>
+          <div class="d-flex mt-2">
+            <i class="bi bi-star-fill text-success"></i>
+            <i class="bi bi-star-fill text-success"></i>
+            <i class="bi bi-star-fill text-success"></i>
+            <i class="bi bi-star-fill text-success"></i>
+            <i class="bi bi-star-fill text-success"></i>
+          </div>
+          <div class="d-flex flex-column justify-content-start gap-2 mt-3">
+            <span
+              >Carlos resolvió un problema eléctrico complicado en mi casa. Muy
+              profesional, puntual y con precios justos. Lo recomiendo
+              100%.</span
+            >
+            <span class="text-secondary">Hace 2 semanas</span>
           </div>
         </div>
-        <div class="d-flex mt-2">
-          <i class="bi bi-star-fill text-success"></i>
-          <i class="bi bi-star-fill text-success"></i>
-          <i class="bi bi-star-fill text-success"></i>
-          <i class="bi bi-star-fill text-success"></i>
-          <i class="bi bi-star-fill text-success"></i>
-        </div>
-        <div class="d-flex flex-column justify-content-start gap-2 mt-3">
-          <span>Carlos resolvió un problema eléctrico complicado en mi casa. Muy
-            profesional, puntual y con precios justos. Lo recomiendo
-            100%.</span>
-          <span class="text-secondary">Hace 2 semanas</span>
-        </div>
-      </div>
-      <div class="col-md-3 col-12 bg-white rounded-4 shadow p-4">
-        <div class="d-flex gap-2">
-          <span class="bg-primary rounded-circle p-3 text-white fw-bold">LP</span>
-          <div class="d-flex flex-column">
-            <span class="fw-bold">Luis Paredes</span>
-            <span>Nutricionista</span>
+        <div class="col-md-3 col-12 bg-white rounded-4 shadow p-4">
+          <div class="d-flex gap-2">
+            <span class="bg-primary rounded-circle p-3 text-white fw-bold"
+              >LP</span
+            >
+            <div class="d-flex flex-column">
+              <span class="fw-bold">Luis Paredes</span>
+              <span>Nutricionista</span>
+            </div>
+          </div>
+          <div class="d-flex mt-2">
+            <i class="bi bi-star-fill text-success"></i>
+            <i class="bi bi-star-fill text-success"></i>
+            <i class="bi bi-star-fill text-success"></i>
+            <i class="bi bi-star-fill text-success"></i>
+            <i class="bi bi-star-fill text-success"></i>
+          </div>
+          <div class="d-flex flex-column justify-content-start gap-2 mt-3">
+            <span
+              >María me ayudó a bajar 15 kilos de forma saludable. Su plan
+              nutricional es personalizado y fácil de seguir. ¡Excelente
+              profesional!
+            </span>
+            <span class="text-secondary">Hace 1 mes</span>
           </div>
         </div>
-        <div class="d-flex mt-2">
-          <i class="bi bi-star-fill text-success"></i>
-          <i class="bi bi-star-fill text-success"></i>
-          <i class="bi bi-star-fill text-success"></i>
-          <i class="bi bi-star-fill text-success"></i>
-          <i class="bi bi-star-fill text-success"></i>
-        </div>
-        <div class="d-flex flex-column justify-content-start gap-2 mt-3">
-          <span>María me ayudó a bajar 15 kilos de forma saludable. Su plan
-            nutricional es personalizado y fácil de seguir. ¡Excelente
-            profesional!
-          </span>
-          <span class="text-secondary">Hace 1 mes</span>
-        </div>
-      </div>
-      <div class="col-md-3 col-12 bg-white rounded-4 shadow p-4">
-        <div class="d-flex gap-2">
-          <span class="bg-primary rounded-circle p-3 text-white fw-bold">PR</span>
-          <div class="d-flex flex-column">
-            <span class="fw-bold">Patricia Rojas</span>
-            <span>Profesor de Matematicas</span>
+        <div class="col-md-3 col-12 bg-white rounded-4 shadow p-4">
+          <div class="d-flex gap-2">
+            <span class="bg-primary rounded-circle p-3 text-white fw-bold"
+              >PR</span
+            >
+            <div class="d-flex flex-column">
+              <span class="fw-bold">Patricia Rojas</span>
+              <span>Profesor de Matematicas</span>
+            </div>
+          </div>
+          <div class="d-flex mt-2">
+            <i class="bi bi-star-fill text-success"></i>
+            <i class="bi bi-star-fill text-success"></i>
+            <i class="bi bi-star-fill text-success"></i>
+            <i class="bi bi-star-fill text-success"></i>
+            <i class="bi bi-star-fill text-success"></i>
+          </div>
+          <div class="d-flex flex-column justify-content-start gap-2 mt-3">
+            <span
+              >Gracias a Jorge, mi hijo aprobó el examen de admisión a la
+              universidad. Paciente, didáctico y con mucha experiencia.
+            </span>
+            <span class="text-secondary">Hace 3 semanas</span>
           </div>
         </div>
-        <div class="d-flex mt-2">
-          <i class="bi bi-star-fill text-success"></i>
-          <i class="bi bi-star-fill text-success"></i>
-          <i class="bi bi-star-fill text-success"></i>
-          <i class="bi bi-star-fill text-success"></i>
-          <i class="bi bi-star-fill text-success"></i>
-        </div>
-        <div class="d-flex flex-column justify-content-start gap-2 mt-3">
-          <span>Gracias a Jorge, mi hijo aprobó el examen de admisión a la
-            universidad. Paciente, didáctico y con mucha experiencia.
-          </span>
-          <span class="text-secondary">Hace 3 semanas</span>
-        </div>
       </div>
     </div>
-  </div>
-  <!-- ¿Listo para encontrar tu profesional ideal? -->
-  <div class="container-fluid p-5 search-prof">
-    <div class="text-white text-center d-flex flex-column gap-3">
-      <h1>¿Listo para encontrar tu profesional ideal?</h1>
-      <h4>Únete a miles de personas que ya confían en Chamba al Toque</h4>
+    <!-- ¿Listo para encontrar tu profesional ideal? -->
+    <div class="container-fluid p-5 search-prof">
+      <div class="text-white text-center d-flex flex-column gap-3">
+        <h1>¿Listo para encontrar tu profesional ideal?</h1>
+        <h4>Únete a miles de personas que ya confían en Chamba al Toque</h4>
+      </div>
+      <div class="text-center mt-5 d-flex justify-content-center gap-4">
+        <a
+          href=""
+          class="btn btn-light rounded-4 p-3 text-primary-emphasis fw-medium"
+          >Explorar servicios <i class="bi bi-chevron-right"></i
+        ></a>
+        <a href="" class="btn btn-success rounded-4 p-3 fw-medium"
+          >Conviertete en proveedor</a
+        >
+      </div>
     </div>
-    <div class="text-center mt-5 d-flex justify-content-center gap-4">
-      <a th:href="@{/servicios}" class="btn btn-light rounded-4 p-3 text-primary-emphasis fw-medium">Explorar servicios
-        <i class="bi bi-chevron-right"></i></a>
-      <a th:href="@{/registro(tipo='freelancer')}" class="btn btn-success rounded-4 p-3 fw-medium">Conviertete en
-        proveedor</a>
-    </div>
-  </div>
-  <!-- FOOTER -->
-  <div th:replace="layouts :: footer"></div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
+    <!-- FOOTER -->
+    <div th:replace="layouts :: footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

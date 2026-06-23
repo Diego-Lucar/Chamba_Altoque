@@ -30,4 +30,8 @@ public class FreelancerService {
     public Integer contarFreelancers() {
         return (int) freelancerRepository.count();
     }
+//se añadió esto
+    public List<Freelancer> buscarFreelancers(String keyword) {
+        return freelancerRepository.buscarPorKeyword(keyword);
+    }
 }
