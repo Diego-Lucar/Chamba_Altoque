@@ -12,10 +12,8 @@ import com.project.sistema.chamba_altoque.repository.DistritoRepository;
 import com.project.sistema.chamba_altoque.repository.ServicioRepository;
 import com.project.sistema.chamba_altoque.service.FreelancerService;
 
-//! DENTRO DE ESTE CONTROLLER SE MANEJARAN LOS COMPORTAMIENTOS
-//! DE LA VISTA SERVICIO Y LA VISTA SOLICITAR SERVICIO
 @Controller
-@RequestMapping("/servicios")
+
 public class VistaServicioController {
     private final ServicioRepository servicioRepository;
     private final DistritoRepository distritoRepository;
@@ -28,8 +26,8 @@ public class VistaServicioController {
         this.freelancerService = freelancerService;
     }
 
-    // SE CAMBIO 
-    @GetMapping
+    // SE CAMBIO
+    @GetMapping("/vista-servicios")
     public String vistaServicio(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
         model.addAttribute("listarServicios", servicioRepository.findAll());
         model.addAttribute("listarDistritos", distritoRepository.findAll());
@@ -37,7 +35,7 @@ public class VistaServicioController {
         // es para verificar si el usuario escribió algo en la barra de búsqueda
         if (keyword != null && !keyword.trim().isEmpty()) {
             model.addAttribute("listarFreelancers", freelancerService.buscarFreelancers(keyword));
-            model.addAttribute("keyword", keyword); 
+            model.addAttribute("keyword", keyword);
         } else {
             // Si no buscó nada, se mantedrpra el comportamiento original
             model.addAttribute("listarFreelancers", freelancerService.listarFreelancers());
@@ -47,7 +45,7 @@ public class VistaServicioController {
 
     @GetMapping("/solicitud/{id}")
     public String vistaSolicitarServicio(@PathVariable Integer id ,Model model){
-        Freelancer freelancer = freelancerService.obtenerFreelancerPorId(id); 
+        Freelancer freelancer = freelancerService.obtenerFreelancerPorId(id);
         model.addAttribute("freelancer", freelancer);
         return "formulario-solicitud";
     }

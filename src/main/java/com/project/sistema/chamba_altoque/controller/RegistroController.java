@@ -78,8 +78,14 @@ public class RegistroController {
             model.addAttribute("tipoRegistro", "freelancer");
             return "registro";
         }
+        // Resolver el distrito correctamente si fue enviado como id por el formulario
+        if (freelancer.getDistrito() != null && freelancer.getDistrito().getId() != null) {
+            freelancer.setDistrito(distritoRepository.findById(freelancer.getDistrito().getId()).orElse(null));
+        }
+
         freelancerService.guardarFreelancer(freelancer);
-        return "redirect:/";
+        // Después del registro de freelancer, llevar al login mostrando el formulario de freelancer
+        return "redirect:/login?tipo=freelancer";
     }
 
     @PostMapping("/guardarUsuario")
@@ -91,8 +97,13 @@ public class RegistroController {
             model.addAttribute("tipoRegistro", "usuario");
             return "registro";
         }
-        usuarioService.guardarUsuario(usuario);
-        return "redirect:/";
-    }
+        // Resolver el distrito si fue enviado como id
+        if (usuario.getDistrito() != null && usuario.getDistrito().getId() != null) {
+            usuario.setDistrito(distritoRepository.findById(usuario.getDistrito().getId()).orElse(null));
+        }
 
+        usuarioService.guardarUsuario(usuario);
+        // Después del registro, llevar al login y mostrar el formulario de usuario
+        return "redirect:/login?tipo=usuario";
+    }
 }

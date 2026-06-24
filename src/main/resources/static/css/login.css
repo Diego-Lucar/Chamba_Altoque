@@ -1,4 +1,3 @@
-/* Estilos específicos para la pantalla de Login - Chamba al Toque */
 
 .login-card {
     max-width: 460px;
@@ -10,7 +9,7 @@
 .icon-lock-box {
     width: 64px;
     height: 64px;
-    background-color: #1E3A8A; /* Color azul corporativo */
+    background-color: #1E3A8A;
     color: #ffffff;
     font-size: 1.75rem;
     display: flex;
@@ -102,6 +101,15 @@
     content: '';
     flex: 1;
     border-bottom: 1px solid #e2e8f0;
+}
+
+.d-grid.mb-4 {
+    margin-top: .5rem;
+}
+
+#btnIniciar {
+    background-color: #10B981;
+    border: none;
 }
 
 .divider-text:not(:empty)::before { margin-right: .5rem; }

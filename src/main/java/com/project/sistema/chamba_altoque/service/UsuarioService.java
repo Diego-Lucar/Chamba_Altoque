@@ -1,8 +1,10 @@
 package com.project.sistema.chamba_altoque.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.project.sistema.chamba_altoque.entities.Usuario;
 import com.project.sistema.chamba_altoque.repository.UsuarioRepository;
@@ -11,12 +13,17 @@ import com.project.sistema.chamba_altoque.repository.UsuarioRepository;
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
 
     public void guardarUsuario(Usuario usuario) {
+        // Almacena la contraseña de forma segura usando BCrypt
+        if (usuario.getPassword() != null && !usuario.getPassword().isEmpty()) {
+            usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+        }
         usuarioRepository.save(usuario);
     }
 
@@ -28,7 +35,14 @@ public class UsuarioService {
         usuarioRepository.deleteById(id);
     }
 
-    public Integer contarUsuarios() {
-        return (int) usuarioRepository.count();
+    public long contarUsuarios() {
+        return usuarioRepository.count();
+    }
+
+// Valida las credenciales de un usuario
+
+    public Optional<Usuario> autenticar(String correo, String password) {
+        return usuarioRepository.findByCorreo(correo)
+            .filter(usuario -> usuario.getPassword() != null && passwordEncoder.matches(password, usuario.getPassword()));
     }
 }
