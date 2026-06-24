@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.project.sistema.chamba_altoque.entities.Distrito;
 
-public interface DistritoRepository extends JpaRepository<Distrito, Long> {
+public interface DistritoRepository extends JpaRepository<Distrito, Integer> {
     
     public List<Distrito> findAll();
 }
