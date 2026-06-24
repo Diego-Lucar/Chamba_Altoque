@@ -1,15 +1,20 @@
 <!doctype html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inicio | Chamba al Toque</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" th:href="@{/css/inicio.css}" />
-  <link rel="stylesheet" th:href="@{/css/style.css}" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio | Chamba al Toque</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" th:href="@{/css/inicio.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
 
   <body>
     <!-- NAVBAR -->
@@ -28,17 +33,31 @@
         </h2>
         <div class="row justify-content-start">
           <div class="col-md-6">
-            <div class="input-group input-group-lg mt-4">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="¿Qué servicio necesitas?"
-                aria-label="Buscar"
-              />
-              <button class="btn btn-success" type="button">
-                <i class="bi bi-search"></i>
-              </button>
-            </div>
+            <form th:action="@{/servicios}" method="GET">
+              <div class="input-group input-group-lg mt-4">
+                <input
+                  type="text"
+                  name="keyword"
+                  class="form-control"
+                  placeholder="¿En qué distrito necesitas?"
+                  aria-label="Buscar"
+                  list="sugerenciasDistritos"
+                  autocomplete="off"
+                  required
+                />
+
+                <datalist id="sugerenciasDistritos">
+                  <option
+                    th:each="distrito : ${listarDistritos}"
+                    th:value="${distrito.nombre}"
+                  ></option>
+                </datalist>
+
+                <button class="btn btn-success" type="submit">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -127,7 +146,9 @@
             identidad y certificaciones</span
           >
         </div>
-        <a th:href="@{/como-funciona}" class="text-decoration-none text-primary mt-3 fw-bold"
+        <a
+          th:href="@{/como-funciona}"
+          class="text-decoration-none text-primary mt-3 fw-bold"
           >Ver como funciona <i class="bi bi-chevron-right"></i
         ></a>
       </div>
@@ -313,7 +334,9 @@
           class="btn btn-light rounded-4 p-3 text-primary-emphasis fw-medium"
           >Explorar servicios <i class="bi bi-chevron-right"></i
         ></a>
-        <a th:href="@{/registro(tipo='freelancer')}" class="btn btn-success rounded-4 p-3 fw-medium"
+        <a
+          th:href="@{/registro(tipo='freelancer')}"
+          class="btn btn-success rounded-4 p-3 fw-medium"
           >Conviertete en proveedor</a
         >
       </div>
